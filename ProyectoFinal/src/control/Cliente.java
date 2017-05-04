@@ -1,5 +1,5 @@
 package control;
 
 public class Cliente {
-
+	private int numero;
 }
