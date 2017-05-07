@@ -15,6 +15,11 @@ public class PrincipalUI extends JFrame {
 	protected JMenuItem mntmBaja;
 	protected JMenuItem mntmAlta;
 	protected  JMenu mnCliente;
+	private JMenu mnArticulo;
+	private JMenuItem mntmArtiAlta;
+	private JMenuItem mntmArtiConsulta;
+	private JMenuItem mntmArtiBaja;
+	private JMenuItem menuItem_3;
 
 	public PrincipalUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +42,21 @@ public class PrincipalUI extends JFrame {
 		
 		mntmBaja = new JMenuItem("Baja");
 		mnCliente.add(mntmBaja);
+		
+		mnArticulo = new JMenu("Articulo");
+		menuBar.add(mnArticulo);
+		
+		mntmArtiAlta = new JMenuItem("Alta");
+		mnArticulo.add(mntmArtiAlta);
+		
+		mntmArtiConsulta = new JMenuItem("Consulta");
+		mnArticulo.add(mntmArtiConsulta);
+		
+		mntmArtiBaja = new JMenuItem("Modificacion");
+		mnArticulo.add(mntmArtiBaja);
+		
+		menuItem_3 = new JMenuItem("Baja");
+		mnArticulo.add(menuItem_3);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
