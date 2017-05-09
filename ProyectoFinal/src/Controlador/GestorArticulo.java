@@ -1,11 +1,12 @@
 package Controlador;
+
+import java.util.ArrayList;
 import Modelo.Articulo;
-import rutas.rutasFicheros;
+
 
 public class GestorArticulo implements IGestorABMC {
-	Articulo articulo = new Articulo();
-	GuardarLista guardar;
-	LeerArrayList leerLista;
+	
+	private ArrayList<Articulo>articulos=new ArrayList<>();
 	private int idArticulo = 1;
 
 	@Override
@@ -13,12 +14,12 @@ public class GestorArticulo implements IGestorABMC {
 		if (object instanceof Articulo) {
 
 			Articulo articulo = (Articulo) object;
-			leerLista = new LeerArrayList(articulo, rutasFicheros.rutaArticulo);
+		
 			Object consultArticulo = consulta(articulo.getNombreArticulo());
 			if (consultArticulo == null) {
 				articulo.setIdArticulo(idArticulo);
 				idArticulo++;
-				guardar = new GuardarLista((Articulo) object, rutasFicheros.rutaArticulo, leerLista.listaArticulo);
+				articulos.add(articulo);
 
 				return true;
 			}
@@ -29,7 +30,7 @@ public class GestorArticulo implements IGestorABMC {
 	@Override
 	public Object consulta(String nombre) {
 
-		for (int i = 0; i < leerLista.listaArticulo.size(); i++) {
+		for (Articulo articulo: articulos) {
 			if (articulo.getNombreArticulo().equals(nombre)) {
 				return articulo;
 			}
@@ -43,7 +44,7 @@ public class GestorArticulo implements IGestorABMC {
 			Articulo articulo = (Articulo) object;
 			Object consultaArticulo = consulta(articulo.getNombreArticulo());
 			if (consultaArticulo != null) {
-				for (Articulo articulito : leerLista.listaArticulo) {
+				for (Articulo articulito : articulos) {
 					if (articulito.equals(object)) {
 
 						return true;
@@ -61,7 +62,7 @@ public class GestorArticulo implements IGestorABMC {
 			Articulo articulo = (Articulo) object;
 			Object consultaArticulo = consulta(articulo.getNombreArticulo());
 			if (consultaArticulo != null) {
-				leerLista.listaArticulo.remove(consultaArticulo);
+				articulos.remove(consultaArticulo);
 				return true;
 			}
 		}
