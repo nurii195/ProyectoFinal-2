@@ -17,11 +17,10 @@ import javax.swing.JButton;
 public class AltaArticuloUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textNombreArticulo;
-	private JTextField txtPrecioarticulo;
-	private JTextField txtDescripcionArticulo;
-	private JTextField textField;
-	private JButton btnGuardarAltaArticulo;
+	protected JTextField txtNombreArticulo;
+	protected JTextField txtPrecioarticulo;
+	protected JTextField txtDescripcionArticulo;
+	protected JButton btnGuardarAltaArticulo;
 
 	public AltaArticuloUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,16 +59,17 @@ public class AltaArticuloUI extends JFrame {
 		gbc_lblNombreArticulo.gridy = 2;
 		contentPane.add(lblNombreArticulo, gbc_lblNombreArticulo);
 		
-		textNombreArticulo = new JTextField();
-		GridBagConstraints gbc_textNombreArticulo = new GridBagConstraints();
-		gbc_textNombreArticulo.insets = new Insets(0, 0, 5, 5);
-		gbc_textNombreArticulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textNombreArticulo.gridx = 3;
-		gbc_textNombreArticulo.gridy = 2;
-		contentPane.add(textNombreArticulo, gbc_textNombreArticulo);
-		textNombreArticulo.setColumns(10);
+		txtNombreArticulo = new JTextField();
+		GridBagConstraints gbc_txtNombreArticulo = new GridBagConstraints();
+		gbc_txtNombreArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_txtNombreArticulo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtNombreArticulo.gridx = 3;
+		gbc_txtNombreArticulo.gridy = 2;
+		contentPane.add(txtNombreArticulo, gbc_txtNombreArticulo);
+		txtNombreArticulo.setColumns(10);
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
+		textField.setEditable(false);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;

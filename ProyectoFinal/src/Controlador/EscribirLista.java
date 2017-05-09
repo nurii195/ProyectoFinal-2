@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class EscribirLista {
+	
 public boolean escribeLista(Object objeto,String ruta){
 	
 	File archivo = new File(ruta);
@@ -45,5 +46,6 @@ public boolean escribeLista(Object objeto,String ruta){
 	return true;
 	
 }
+
 }
 

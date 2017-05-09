@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Articulo;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -17,28 +20,9 @@ import java.awt.Font;
 public class BajaArticuloUI extends JFrame {
 
 	private JPanel contentPane;
-	private JComboBox comboBoxBajaArticulo;
-	private JButton btnGuardarBajaArticulo;
+	protected JComboBox<Articulo> comboBoxBajaArticulo;
+	protected JButton btnGuardarBajaArticulo;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BajaArticuloUI frame = new BajaArticuloUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public BajaArticuloUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
