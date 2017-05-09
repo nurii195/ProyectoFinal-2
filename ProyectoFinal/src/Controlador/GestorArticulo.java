@@ -1,9 +1,4 @@
 package Controlador;
-
-import java.util.Iterator;
-
-import javax.swing.JOptionPane;
-
 import Modelo.Articulo;
 import rutas.rutasFicheros;
 
@@ -12,57 +7,63 @@ public class GestorArticulo implements IGestorABMC {
 	GuardarLista guardar;
 	LeerArrayList leerLista;
 	private int id=0;
-
+	private int idArticulo = 1;
 
 	@Override
-	public void alta(Object object) {
-		leerLista = new LeerArrayList(articulo, rutasFicheros.rutaArticulo);
-		articulo = (Articulo) consulta(articulo.getNombreArticulo());
-		if (articulo == null) {
-			guardar = new GuardarLista((Articulo) object, rutasFicheros.rutaArticulo, leerLista.listaArticulo);
-			articulo.setIdArticulo(id++);
-			JOptionPane.showMessageDialog(null, "EL articulo ha sido añadido correctamente");
-		}else {
-			JOptionPane.showMessageDialog(null, "EL articulo no ha sido añadido correctamente");
-		}
+	public boolean alta(Object object) {
+		if (object instanceof Articulo) {
 
-	}
+			Articulo articulo = (Articulo) object;
+			leerLista = new LeerArrayList(articulo, rutasFicheros.rutaArticulo);
+			Object consultArticulo = consulta(articulo.getNombreArticulo());
+			if (consultArticulo == null) {
+				articulo.setIdArticulo(idArticulo);
+				idArticulo++;
+				guardar = new GuardarLista((Articulo) object, rutasFicheros.rutaArticulo, leerLista.listaArticulo);
+
+
 
 	@Override
 	public Object consulta(String nombre) {
+
 		for (int i = 0; i < leerLista.listaArticulo.size(); i++) {
 			if (articulo.getNombreArticulo().equals(nombre)) {
 				return articulo;
-			}else {
-				JOptionPane.showMessageDialog(null, "EL articulo no se encuentra");
 			}
-			
 		}
 		return null;
 	}
 
 	@Override
-	public Object modificacion(Object object) {
+	public boolean modificacion(Object object) {
 		if (object instanceof Articulo) {
-			leerLista = new LeerArrayList(articulo, rutasFicheros.rutaArticulo);
-			articulo = (Articulo) consulta(articulo.getNombreArticulo());
-			
+			Articulo articulo = (Articulo) object;
+			Object consultaArticulo = consulta(articulo.getNombreArticulo());
+			if (consultaArticulo != null) {
+				for (Articulo articulito : leerLista.listaArticulo) {
+					if (articulito.equals(object)) {
+
+						return true;
+					}
+				}
+
+			}
 		}
-		return null;
+		return false;
 	}
 
 	@Override
-	public void baja(Object object) {
-		articulo= (Articulo) consulta(articulo.getNombreArticulo());
-		if (articulo.equals(object)) {
-			leerLista.lista.remove(object);
-			articulo.setBaja(true);
-			guardar= new GuardarLista((Articulo) object, rutasFicheros.rutaArticulo, leerLista.listaArticulo);
-			JOptionPane.showMessageDialog(null, "Articulo dado de baja");
-		}else {
-			JOptionPane.showMessageDialog(null, "EL articulo no se encuentra");
+	public boolean baja(Object object) {
+		if (object instanceof Articulo) {
+			Articulo articulo = (Articulo) object;
+			Object consultaArticulo = consulta(articulo.getNombreArticulo());
+			if (consultaArticulo != null) {
+				leerLista.listaArticulo.remove(consultaArticulo);
+				return true;
+			}
 		}
 
+		return false;
 	}
 
 }

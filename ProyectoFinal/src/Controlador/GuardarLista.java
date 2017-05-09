@@ -3,6 +3,7 @@ package Controlador;
 import java.util.ArrayList;
 
 import Modelo.Articulo;
+import Modelo.Cliente;
 
 public class GuardarLista {
 	EscribirLista escribir;
@@ -13,6 +14,11 @@ public class GuardarLista {
 		escribir.escribeLista(articulo, ruta);
 	}
 	
+	public GuardarLista(Cliente cliente, String ruta, ArrayList<Cliente> lista){
+		escribir= new EscribirLista();
+		lista.add(cliente);
+		escribir.escribeLista(cliente, ruta);
+	}
 	
 
 }

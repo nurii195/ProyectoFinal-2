@@ -3,6 +3,7 @@ package Modelo;
 import java.io.Serializable;
 
 public class Articulo implements Serializable {
+	
 	private int idArticulo;
 	private String nombreArticulo;
 	private float precio;

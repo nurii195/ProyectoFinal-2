@@ -3,17 +3,24 @@ package Controlador;
 import java.io.*;
 
 public class LeerArchivo {
+	
 	public void leerRuta(String ruta) {
-
+		File archivo = new File(ruta);
 		BufferedReader buffer = null;
 		try {
-			FileReader flujo = new FileReader(ruta);
+			FileReader flujo = new FileReader(archivo);
 			buffer = new BufferedReader(flujo);
-
-			String line = buffer.readLine();
-			while (line != null) {
-				line = buffer.readLine();
+			if (archivo.exists()) {
+				String line = buffer.readLine();
+				while (line != null) {
+					line = buffer.readLine();
+				}
+			}else {
+				archivo.createNewFile();
 			}
+	
+
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
