@@ -2,9 +2,9 @@ package Controlador;
 
 public interface IGestorABMC {
 	
-	public void alta(Object object);
+	public boolean alta(Object object);
 	public Object consulta(String nombre);
-	public Object modificacion(Object object);
-	public void baja(Object object);
+	public boolean modificacion(Object object);
+	public boolean baja(Object object);
 
 }
