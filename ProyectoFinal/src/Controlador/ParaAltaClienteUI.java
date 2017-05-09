@@ -21,7 +21,7 @@ public class ParaAltaClienteUI extends AltaClienteUI {
 				String segundoApellido = textSegundoACA.getText();
 				String dni = textDniCA.getText();
 				Cliente cliente= new Cliente();
-				cliente.setDni(nombre);
+				cliente.setNombre(nombre);
 				cliente.setPrimerApellido(primerApellido);
 				cliente.setSegundoApellido(segundoApellido);
 				cliente.setDni(dni);
