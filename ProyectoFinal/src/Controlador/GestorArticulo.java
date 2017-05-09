@@ -20,10 +20,9 @@ public class GestorArticulo implements IGestorABMC {
 				articulo.setIdArticulo(idArticulo);
 				idArticulo++;
 				articulos.add(articulo);
-
 				return true;
+				}
 			}
-		}
 		return false;
 	}
 

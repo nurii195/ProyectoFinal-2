@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 public class ParaPrincipalUI extends PrincipalUI {
 	
 	private GestorCliente gCliente=new GestorCliente();
+	private GestorArticulo gArticulo = new GestorArticulo();
 	
 
 	public static void main(String[] args) {
@@ -40,6 +41,37 @@ public class ParaPrincipalUI extends PrincipalUI {
 				
 			}
 		});
+		mntmArtiAlta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaAltaArticuloUI  alta = new ParaAltaArticuloUI(gArticulo);
+				setContentPane(alta);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		mntmArtiConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaConsultaArticuloUI  consulta = new ParaConsultaArticuloUI(gArticulo);
+				setContentPane(consulta);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		
+		mntmArtiBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaBajaArticuloUI  baja = new ParaBajaArticuloUI(gArticulo);
+				setContentPane(baja);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		mntmArtiModif.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaModificacionArticuloUI  modificacion = new ParaModificacionArticuloUI(gArticulo);
+				setContentPane(modificacion);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		
+		
 	}
 
 }

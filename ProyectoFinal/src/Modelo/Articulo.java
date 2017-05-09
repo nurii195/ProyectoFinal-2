@@ -22,11 +22,11 @@ public class Articulo implements Serializable {
 		super();
 	}
 
-	public Articulo(int idArticulo, String nombreArticulo, float precio) {
+	public Articulo(String nombreArticulo, float precio,String descripcion) {
 		super();
-		this.idArticulo = idArticulo;
 		this.nombreArticulo = nombreArticulo;
 		this.precio = precio;
+		this.descripcion=descripcion;
 	}
 
 	public int getIdArticulo() {

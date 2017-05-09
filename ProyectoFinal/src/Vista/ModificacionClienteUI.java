@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class ModificacionClienteUI extends JPanel {
+	
 	private JTextField textNombreCM;
 	private JTextField textPrimerACM;
 	private JTextField textSegundoACM;
