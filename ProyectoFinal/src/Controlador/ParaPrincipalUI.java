@@ -48,6 +48,28 @@ public class ParaPrincipalUI extends PrincipalUI {
 				ParaPrincipalUI.this.revalidate();
 			}
 		});
+		mntmArtiConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaConsultaArticuloUI  consulta = new ParaConsultaArticuloUI(gArticulo);
+				setContentPane(consulta);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		
+		mntmArtiBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaBajaArticuloUI  baja = new ParaBajaArticuloUI(gArticulo);
+				setContentPane(baja);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
+		mntmArtiModif.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaModificacionArticuloUI  modificacion = new ParaModificacionArticuloUI(gArticulo);
+				setContentPane(modificacion);
+				ParaPrincipalUI.this.revalidate();
+			}
+		});
 		
 		
 	}
