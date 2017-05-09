@@ -21,6 +21,7 @@ public class PrincipalUI extends JFrame {
 	protected JMenuItem mntmArtiBaja;
 	protected JMenuItem mntmArtiModif;
 
+
 	public PrincipalUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -42,6 +43,7 @@ public class PrincipalUI extends JFrame {
 		
 		mntmBaja = new JMenuItem("Baja");
 		mnCliente.add(mntmBaja);
+
 		
 		mnArticulo = new JMenu("Articulo");
 		menuBar.add(mnArticulo);
@@ -58,6 +60,7 @@ public class PrincipalUI extends JFrame {
 		mntmArtiModif = new JMenuItem("Modificacion");
 		mnArticulo.add(mntmArtiModif);
 		
+
 	}
 
 }

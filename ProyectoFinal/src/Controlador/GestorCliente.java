@@ -1,11 +1,12 @@
 package Controlador;
+import java.util.ArrayList;
+
 import Modelo.Cliente;
-import rutas.rutasFicheros;
+
 
 public class GestorCliente implements IGestorABMC {
-	Cliente cliente=new Cliente();
-	GuardarLista guardar;
-	LeerArrayList leerLista;
+
+	private ArrayList<Cliente>clientes=new ArrayList<>();
 	private int id = 1;
 
 	@Override
@@ -13,14 +14,14 @@ public class GestorCliente implements IGestorABMC {
 		if (object instanceof Cliente) {
 			Cliente cliente= (Cliente) object;
 			
-			leerLista = new LeerArrayList(object, rutasFicheros.rutaCliente);
+		
 			Object clienteAntiguo = consulta(cliente.getDni());
 
 			if (clienteAntiguo == null) {
 				cliente.setId(id);
 				id++;
 				
-				guardar = new GuardarLista(cliente, rutasFicheros.rutaCliente, leerLista.listaCliente);
+				clientes.add(cliente);
 				return true;
 			} 
 		}
@@ -30,7 +31,7 @@ public class GestorCliente implements IGestorABMC {
 	@Override
 	public Object consulta(String dni) {
 	
-		for (Cliente cliente : leerLista.listaCliente) {
+		for (Cliente cliente : clientes) {
 			if (cliente.getDni().equals(dni)) {
 				return cliente;
 			}
@@ -46,7 +47,7 @@ public class GestorCliente implements IGestorABMC {
 			Cliente cliente= (Cliente) object;
 			Object consultaCliente = consulta(cliente.getDni());
 			if (consultaCliente != null) {
-				for (Cliente clientito : leerLista.listaCliente) {
+				for (Cliente clientito : clientes) {
 					if (clientito.equals(object)) {
 
 						return true;
@@ -65,7 +66,7 @@ public class GestorCliente implements IGestorABMC {
 			Cliente cliente= (Cliente) object;
 			Object consultaCliente = consulta(cliente.getDni());
 			if (consultaCliente != null) {
-				leerLista.listaCliente.remove(consultaCliente);
+				clientes.remove(consultaCliente);
 				return true;
 			}
 		}

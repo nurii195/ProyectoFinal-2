@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class AltaClienteUI extends JPanel {
+	
 	protected JTextField textNombreCA;
 	protected JTextField textPrimerACA;
 	protected JTextField textSegundoACA;
