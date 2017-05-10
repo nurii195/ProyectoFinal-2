@@ -10,22 +10,36 @@ import javax.swing.border.EmptyBorder;
 import Modelo.Articulo;
 import Vista.ConsultaArtiUI;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class ParaConsultaArticuloUI extends ConsultaArtiUI {
 
+	GestorArticulo gestorArticulo;
 
 	public ParaConsultaArticuloUI(GestorArticulo gArticulo) {
 		super();
+
+		this.gestorArticulo = gArticulo;
+
+		textPrecioConsulta.setEnabled(false);
+
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GestorArticulo consulta = new GestorArticulo();
-				Object articulo=consulta.consulta(textNombreConsultar.getText());
-				if (articulo!=null) {
-					textCampoRespuesta.setText("Articulo dado de alta");
-				}else {
-					textCampoRespuesta.setText("El articulo no existe");
+
+				String campoNombre = textNombreConsultar.getText();
+				Object articulo = gArticulo.consulta(campoNombre);
+				Articulo articuloUno = (Articulo) articulo;
+				if (!campoNombre.isEmpty() && articulo != null) {
+					textPrecioConsulta.setText(String.valueOf(articuloUno.getPrecio()));
+					textCampoRespuestaDescripcion.setText(articuloUno.getDescripcion());
+					textRespuesta.setText("El articulo ya existe");
+
+				} else {
+					textRespuesta.setText("El articulo no existe");
+					textRespuesta.setText("El campo nombre está vacío");
 				}
+
 			}
 		});
 	}

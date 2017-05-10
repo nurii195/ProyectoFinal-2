@@ -19,7 +19,7 @@ public class GestorArticuloTest {
 		articulo.setDescripcion("utillage para golpear");
 		articulo.setBaja(false);
 		boolean alta = instancia.alta(articulo);
-		assertTrue(true);
+		assertTrue(alta);
 		
 		//---------------------------------------
 		

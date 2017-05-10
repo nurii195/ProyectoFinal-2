@@ -13,6 +13,30 @@ public class TestGestorCliente extends GestorCliente {
 	
 	@Test
 	public void testAlta() {
+		GestorCliente instancia = new GestorCliente();
+		
+		Cliente cliente = new Cliente();
+		cliente.setDni("012457896T");
+		cliente.setNombre("Paco");
+		cliente.setPrimerApellido("Lopez");
+		cliente.setSegundoApellido("Gomez");
+		cliente.setId(1);
+		boolean alta = instancia.alta(cliente);
+		assertTrue(alta);
+		
+		boolean alta2=instancia.alta(cliente);
+		assertFalse(alta2);
+		
+		Cliente clienteDos = new Cliente();
+		clienteDos.setDni(null);
+		boolean alta3=instancia.alta(clienteDos);
+		assertNull(alta3);
+		
+		boolean alta4=instancia.alta(null);
+		assertFalse(alta4);
+		
+		boolean alta5=instancia.alta("Mariflores");
+		assertFalse(alta5);
 		
 		
 		
