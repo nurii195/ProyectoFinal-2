@@ -1,13 +1,17 @@
 package Controlador;
 import java.awt.EventQueue;
 import Vista.PrincipalUI;
+import rutas.rutasFicheros;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ParaPrincipalUI extends PrincipalUI {
 	
-	private GestorCliente gCliente=new GestorCliente();
-	private GestorArticulo gArticulo = new GestorArticulo();
+	private IObjeto gestorArchivoCliente;
+	private IObjeto gestorArchivoArticulo;
+	private GestorCliente gCliente;
+	private GestorArticulo gArticulo;
 	
 
 	public static void main(String[] args) {
@@ -26,6 +30,11 @@ public class ParaPrincipalUI extends PrincipalUI {
 	
 	public ParaPrincipalUI() {
 		super();
+		gestorArchivoCliente=new GestorObjetos(rutasFicheros.rutaCliente);
+		gestorArchivoArticulo= new GestorObjetos(rutasFicheros.rutaArticulo);
+		gCliente=new GestorCliente(gestorArchivoCliente);
+		gArticulo= new GestorArticulo();
+		
 		mntmConsult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ParaConsultaClienteUI consulta=new ParaConsultaClienteUI(gCliente);

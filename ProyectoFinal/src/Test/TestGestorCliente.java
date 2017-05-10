@@ -1,19 +1,18 @@
 package Test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import Controlador.GestorCliente;
+import Controlador.GestorObjetos;
 import Modelo.Cliente;
+import rutas.rutasFicheros;
 
-public class TestGestorCliente extends GestorCliente {
-
-
+public class TestGestorCliente {
 	
 	@Test
 	public void testAlta() {
-		GestorCliente instancia = new GestorCliente();
+		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaCliente");
+		GestorCliente instancia = new GestorCliente(gestorArchivoCliente);
 		
 		Cliente cliente = new Cliente();
 		cliente.setDni("012457896T");
@@ -44,7 +43,8 @@ public class TestGestorCliente extends GestorCliente {
 
 	@Test
 	public void testConsulta() {
-		GestorCliente instancia = new GestorCliente();
+		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaCliente");
+		GestorCliente instancia = new GestorCliente(gestorArchivoCliente);
 		
 		Cliente cliente1 = new Cliente();
 		Cliente cliente2 = new Cliente();
@@ -73,17 +73,7 @@ public class TestGestorCliente extends GestorCliente {
 		
 		assertNull(consulta3);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 	}
 
