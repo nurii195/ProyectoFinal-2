@@ -1,11 +1,10 @@
 package Test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import Controlador.GestorArticulo;
 import Modelo.Articulo;
+
 
 public class GestorArticuloTest {
 
@@ -19,7 +18,7 @@ public class GestorArticuloTest {
 		articulo.setDescripcion("utillage para golpear");
 		articulo.setBaja(false);
 		boolean alta = instancia.alta(articulo);
-		assertTrue(true);
+		assertTrue(alta);
 		
 		//---------------------------------------
 		
@@ -46,6 +45,36 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testConsulta() {
+		
+		GestorArticulo instancia=new GestorArticulo();
+		Articulo articuloUno=new Articulo();
+		Articulo articuloDos=new Articulo();
+		
+
+		articuloUno.setNombreArticulo("martillo");
+		boolean alta = instancia.alta(articuloUno);
+		
+		articuloDos.setNombreArticulo("sierra");
+		boolean alta2 = instancia.alta(articuloDos);
+		
+		Object consulta = instancia.consulta(articuloUno.getNombreArticulo());
+		Object consulta2 = instancia.consulta(articuloDos.getNombreArticulo());
+		
+		assertTrue(alta);
+		assertTrue(alta2);
+		
+		assertNotNull(consulta);
+		assertNotNull(consulta2);
+		
+		assertTrue(consulta instanceof Articulo);
+		assertTrue(consulta2 instanceof Articulo);
+		
+		assertTrue(articuloUno.getNombreArticulo().equals(consulta));
+		assertTrue(articuloDos.getNombreArticulo().equals(consulta2));
+		
+		Object consulta3 = instancia.consulta("00000000");
+		
+		assertNull(consulta3);
 		
 	}
 

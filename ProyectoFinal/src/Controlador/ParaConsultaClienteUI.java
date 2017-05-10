@@ -2,6 +2,9 @@ package Controlador;
 
 import Vista.ConsultaClienteUI;
 import java.awt.event.ActionListener;
+
+import Modelo.Cliente;
+
 import java.awt.event.ActionEvent;
 
 public class ParaConsultaClienteUI extends ConsultaClienteUI {
@@ -11,20 +14,27 @@ public class ParaConsultaClienteUI extends ConsultaClienteUI {
 	public ParaConsultaClienteUI(GestorCliente gestorCliente) {
 		super();
 		this.gCliente = gestorCliente;
-		textResultadoConsultaCliente.setEnabled(false);
+		textNombreCC.setEnabled(false);
+		textPrimerApellidoCC.setEnabled(false);
+		textSegundoApellidoCC.setEnabled(false);
+		textResultadoCC.setEditable(false);
 		btnConsultarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String dni = textDniCC.getText();
 				Object cliente = gCliente.consulta(dni);
-				if (cliente != null) {
-					textResultadoConsultaCliente.setText("Cliente dado de alta");
+				Cliente clientito = (Cliente) cliente;
+				if (clientito != null) {
+
+					textNombreCC.setText(clientito.getNombre());
+					textPrimerApellidoCC.setText(clientito.getPrimerApellido());
+					textSegundoApellidoCC.setText(clientito.getSegundoApellido());
+					textResultadoCC.setText("Cliente encontrado");
 				} else {
-					textResultadoConsultaCliente.setText("Cliente no dado de alta");
+					textResultadoCC.setText("Cliente no encontrado");
 				}
 
 			}
 		});
 
 	}
-
 }
