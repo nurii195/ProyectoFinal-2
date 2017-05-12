@@ -1,16 +1,27 @@
 package Modelo;
 
-public class Pedido {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Pedido implements Serializable {
 	
 	private int idPedido;
 	private String fecha;
 	private Cliente cliente;
-	private LineaPedido lineaPedido;
+	private ArrayList<LineaPedido>lineasPedidos;
+
 	public Pedido() {
 		super();
+		lineasPedidos=new ArrayList<>();
 	}
 	public int getIdPedido() {
-		return idPedido;
+		return idPedido;	
+	}
+	public ArrayList<LineaPedido> getLineasPedidos() {
+		return lineasPedidos;
+	}
+	public void setLineasPedidos(ArrayList<LineaPedido> lineasPedidos) {
+		this.lineasPedidos = lineasPedidos;
 	}
 	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
@@ -27,17 +38,13 @@ public class Pedido {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public LineaPedido getLineaPedido() {
-		return lineaPedido;
-	}
-	public void setLineaPedido(LineaPedido lineaPedido) {
-		this.lineaPedido = lineaPedido;
-	}
 	@Override
 	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", cliente=" + cliente + ", lineaPedido="
-				+ lineaPedido + "]";
+		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", cliente=" + cliente + ", lineasPedidos="
+				+ lineasPedidos + "]";
 	}
+
+	
 	
 	
 

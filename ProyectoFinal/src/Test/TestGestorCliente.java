@@ -1,6 +1,10 @@
 package Test;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+
+import org.junit.Before;
 import org.junit.Test;
 import Controlador.GestorCliente;
 import Controlador.GestorObjetos;
@@ -8,6 +12,14 @@ import Modelo.Cliente;
 import rutas.rutasFicheros;
 
 public class TestGestorCliente {
+	
+	
+	@Before
+	public void init(){
+	File file = new File("archivoTestAltaCliente");
+		if(file.exists())
+			file.delete();
+	}
 	
 	@Test
 	public void testAlta() {
