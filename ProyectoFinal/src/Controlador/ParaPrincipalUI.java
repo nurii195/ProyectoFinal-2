@@ -33,7 +33,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 		gestorArchivoCliente=new GestorObjetos(rutasFicheros.rutaCliente);
 		gestorArchivoArticulo= new GestorObjetos(rutasFicheros.rutaArticulo);
 		gCliente=new GestorCliente(gestorArchivoCliente);
-		gArticulo= new GestorArticulo();
+		gArticulo= new GestorArticulo(gestorArchivoArticulo);
 		
 		mntmConsult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
