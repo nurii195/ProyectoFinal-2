@@ -3,6 +3,7 @@ package Test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import Controlador.GestorArticulo;
+import Controlador.GestorObjetos;
 import Modelo.Articulo;
 
 
@@ -10,7 +11,8 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testAlta() {
-		GestorArticulo instancia=new GestorArticulo();
+		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaArticulo");
+		GestorArticulo instancia=new GestorArticulo(gestorArchivoCliente);
 		Articulo articulo=new Articulo();
 		articulo.setIdArticulo(1);
 		articulo.setNombreArticulo("martillo");
@@ -45,8 +47,8 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testConsulta() {
-		
-		GestorArticulo instancia=new GestorArticulo();
+		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaArticulo");
+		GestorArticulo instancia=new GestorArticulo(gestorArchivoCliente);
 		Articulo articuloUno=new Articulo();
 		Articulo articuloDos=new Articulo();
 		

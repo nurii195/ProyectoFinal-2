@@ -19,13 +19,15 @@ public class ConsultaArtiUI extends JPanel {
 	protected JLabel lblDescripcion;
 	protected JTextField textRespuesta;
 	protected JLabel lblRespuesta;
+	protected JLabel lblIdarticulo;
+	protected JTextField textIdArticulo;
 
 	public ConsultaArtiUI() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, -20, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, -20, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblConsultaArticulo = new JLabel("Consulta Articulo");
@@ -46,7 +48,7 @@ public class ConsultaArtiUI extends JPanel {
 		textNombreConsultar = new JTextField();
 		GridBagConstraints gbc_textNombreConsultar = new GridBagConstraints();
 		gbc_textNombreConsultar.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textNombreConsultar.gridwidth = 2;
+		gbc_textNombreConsultar.gridwidth = 3;
 		gbc_textNombreConsultar.insets = new Insets(0, 0, 5, 5);
 		gbc_textNombreConsultar.gridx = 4;
 		gbc_textNombreConsultar.gridy = 3;
@@ -57,7 +59,7 @@ public class ConsultaArtiUI extends JPanel {
 		GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
 		gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPrecio.gridx = 2;
-		gbc_lblPrecio.gridy = 5;
+		gbc_lblPrecio.gridy = 4;
 		add(lblPrecio, gbc_lblPrecio);
 		
 		textPrecioConsulta = new JTextField();
@@ -66,24 +68,43 @@ public class ConsultaArtiUI extends JPanel {
 		gbc_textPrecioConsulta.anchor = GridBagConstraints.WEST;
 		gbc_textPrecioConsulta.insets = new Insets(0, 0, 5, 5);
 		gbc_textPrecioConsulta.gridx = 4;
-		gbc_textPrecioConsulta.gridy = 5;
+		gbc_textPrecioConsulta.gridy = 4;
 		add(textPrecioConsulta, gbc_textPrecioConsulta);
 		textPrecioConsulta.setColumns(10);
+		
+		lblIdarticulo = new JLabel("IdArticulo");
+		GridBagConstraints gbc_lblIdarticulo = new GridBagConstraints();
+		gbc_lblIdarticulo.anchor = GridBagConstraints.EAST;
+		gbc_lblIdarticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIdarticulo.gridx = 5;
+		gbc_lblIdarticulo.gridy = 4;
+		add(lblIdarticulo, gbc_lblIdarticulo);
+		
+		textIdArticulo = new JTextField();
+		textIdArticulo.setEnabled(false);
+		GridBagConstraints gbc_textIdArticulo = new GridBagConstraints();
+		gbc_textIdArticulo.anchor = GridBagConstraints.WEST;
+		gbc_textIdArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_textIdArticulo.gridx = 6;
+		gbc_textIdArticulo.gridy = 4;
+		add(textIdArticulo, gbc_textIdArticulo);
+		textIdArticulo.setColumns(10);
 		
 		lblDescripcion = new JLabel("Descripcion");
 		GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
 		gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDescripcion.gridx = 2;
-		gbc_lblDescripcion.gridy = 7;
+		gbc_lblDescripcion.gridy = 6;
 		add(lblDescripcion, gbc_lblDescripcion);
 		
 		textCampoRespuestaDescripcion = new JTextField();
 		textCampoRespuestaDescripcion.setEnabled(false);
 		GridBagConstraints gbc_textCampoRespuestaDescripcion = new GridBagConstraints();
+		gbc_textCampoRespuestaDescripcion.gridwidth = 3;
 		gbc_textCampoRespuestaDescripcion.insets = new Insets(0, 0, 5, 5);
-		gbc_textCampoRespuestaDescripcion.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textCampoRespuestaDescripcion.fill = GridBagConstraints.BOTH;
 		gbc_textCampoRespuestaDescripcion.gridx = 4;
-		gbc_textCampoRespuestaDescripcion.gridy = 7;
+		gbc_textCampoRespuestaDescripcion.gridy = 6;
 		add(textCampoRespuestaDescripcion, gbc_textCampoRespuestaDescripcion);
 		textCampoRespuestaDescripcion.setColumns(10);
 		
@@ -92,24 +113,26 @@ public class ConsultaArtiUI extends JPanel {
 		gbc_lblRespuesta.fill = GridBagConstraints.VERTICAL;
 		gbc_lblRespuesta.insets = new Insets(0, 0, 5, 5);
 		gbc_lblRespuesta.gridx = 2;
-		gbc_lblRespuesta.gridy = 9;
+		gbc_lblRespuesta.gridy = 8;
 		add(lblRespuesta, gbc_lblRespuesta);
 		
 		textRespuesta = new JTextField();
 		textRespuesta.setEnabled(false);
 		GridBagConstraints gbc_txtRespuesta = new GridBagConstraints();
+		gbc_txtRespuesta.gridwidth = 3;
 		gbc_txtRespuesta.insets = new Insets(0, 0, 5, 5);
 		gbc_txtRespuesta.fill = GridBagConstraints.BOTH;
 		gbc_txtRespuesta.gridx = 4;
-		gbc_txtRespuesta.gridy = 9;
+		gbc_txtRespuesta.gridy = 8;
 		add(textRespuesta, gbc_txtRespuesta);
 		textRespuesta.setColumns(10);
 		
 		btnConsultar = new JButton("Consultar");
 		GridBagConstraints gbc_btnConsultar = new GridBagConstraints();
-		gbc_btnConsultar.insets = new Insets(0, 0, 0, 5);
+		gbc_btnConsultar.gridwidth = 3;
+		gbc_btnConsultar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnConsultar.gridx = 4;
-		gbc_btnConsultar.gridy = 11;
+		gbc_btnConsultar.gridy = 10;
 		add(btnConsultar, gbc_btnConsultar);
 
 	}

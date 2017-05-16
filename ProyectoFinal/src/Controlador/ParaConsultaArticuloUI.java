@@ -32,6 +32,7 @@ public class ParaConsultaArticuloUI extends ConsultaArtiUI {
 				Articulo articuloUno = (Articulo) articulo;
 				if (!campoNombre.isEmpty() && articulo != null) {
 					textPrecioConsulta.setText(String.valueOf(articuloUno.getPrecio()));
+					textIdArticulo.setText(String.valueOf(articuloUno.getIdArticulo()));
 					textCampoRespuestaDescripcion.setText(articuloUno.getDescripcion());
 					textRespuesta.setText("El articulo ya existe");
 
