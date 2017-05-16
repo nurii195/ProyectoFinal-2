@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+
 public class AltaPedidoUI extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
@@ -216,6 +217,7 @@ public class AltaPedidoUI extends JPanel {
 		gbc_btnLimpiarAP.gridx = 11;
 		gbc_btnLimpiarAP.gridy = 15;
 		add(btnLimpiarAP, gbc_btnLimpiarAP);
+
 
 	}
 

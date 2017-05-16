@@ -22,8 +22,10 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testAlta() {
+
 		GestorObjetos gestorArchivoArticulo = new GestorObjetos("archivoTestArticulo");		
 		GestorArticulo instancia=new GestorArticulo(gestorArchivoArticulo);
+
 		Articulo articulo=new Articulo();
 		articulo.setIdArticulo(1);
 		articulo.setNombreArticulo("martillo");
@@ -58,9 +60,11 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testConsulta() {
+
 		
 		GestorObjetos gestorArchivoArticulo = new GestorObjetos("archivoTestArticulo");		
 		GestorArticulo instancia=new GestorArticulo(gestorArchivoArticulo);
+
 		Articulo articuloUno=new Articulo();
 		Articulo articuloDos=new Articulo();
 		

@@ -2,7 +2,7 @@ package Controlador;
 
 import java.util.ArrayList;
 import Modelo.Articulo;
-
+import Modelo.Cliente;
 
 public class GestorArticulo implements IGestorABMC {
 
@@ -14,12 +14,14 @@ public class GestorArticulo implements IGestorABMC {
 		super();
 		this.gestorObjecto = gestorObjecto;
 		Object nextObject = gestorObjecto.getNextObject();
-		if(nextObject != null && nextObject instanceof  ArrayList){
+
+		if (nextObject != null && nextObject instanceof ArrayList) {
 			articulos = (ArrayList<Articulo>) nextObject;
-			
+
 			for (Articulo articulo : articulos) {
-				if(articulo.getIdArticulo() > idArticulo){
-					idArticulo= articulo.getIdArticulo();
+				if (articulo.getIdArticulo() > idArticulo) {
+					idArticulo = articulo.getIdArticulo();
+
 				}
 			}
 			idArticulo++;
@@ -32,13 +34,15 @@ public class GestorArticulo implements IGestorABMC {
 
 			Articulo articulo = (Articulo) object;
 
-			Object consultArticulo = consulta(articulo.getNombreArticulo());
-			if (consultArticulo == null) {
+			Object articuloAntiguo = consulta(articulo.getNombreArticulo());
+			if (articuloAntiguo == null) {
 
 				articulo.setIdArticulo(idArticulo);
+
 				articulos.add(articulo);
 
 				boolean replaceObjects = gestorObjecto.replaceObjects(articulos);
+
 				if (replaceObjects) {
 					idArticulo++;
 					return true;
@@ -91,7 +95,7 @@ public class GestorArticulo implements IGestorABMC {
 //				return true;
 //			}
 //		}
-//
+
 		return false;
 	}
 
