@@ -20,6 +20,11 @@ public class PrincipalUI extends JFrame {
 	protected JMenuItem mntmArtiConsulta;
 	protected JMenuItem mntmArtiBaja;
 	protected JMenuItem mntmArtiModif;
+	protected JMenu mnPedido;
+	protected JMenuItem mntmPedidoAlta;
+	protected JMenuItem mntmPedidoConsulta;
+	protected JMenuItem mntmPedidoBaja;
+	protected JMenuItem mntmPedidoModif;
 
 
 	public PrincipalUI() {
@@ -59,6 +64,22 @@ public class PrincipalUI extends JFrame {
 		
 		mntmArtiModif = new JMenuItem("Modificacion");
 		mnArticulo.add(mntmArtiModif);
+		
+		
+		mnPedido = new JMenu("Pedidos");
+		menuBar.add(mnPedido);
+		
+		mntmPedidoAlta = new JMenuItem("Alta");
+		mnPedido.add(mntmPedidoAlta);
+		
+		mntmPedidoConsulta = new JMenuItem("Consulta");
+		mnPedido.add(mntmPedidoConsulta);
+		
+		mntmPedidoBaja = new JMenuItem("Baja");
+		mnPedido.add(mntmPedidoBaja);
+		
+		mntmPedidoModif = new JMenuItem("Modificacion");
+		mnPedido.add(mntmPedidoModif);
 		
 
 	}
