@@ -8,39 +8,60 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 
 public class AltaPedidoUI extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textRefArticuloAP;
-	private JTextField textNombreArtAP;
-	private JTextField textPrecioAP;
-	private JTextField textCantidadAP;
+	protected JTextField textDniClienteAP;
+	protected JTextField textNombreClienteAP;
+	protected JTextField textPrimerApeAP;
+	protected JTextField textSegundoApeAP;
+	protected JTextField textNombreArticuloAP;
+	protected JTextField textRefArticuloAP;
+	protected JTextField textNombreArtAP;
+	protected JTextField textPrecioAP;
+	protected JTextField textCantidadAP;
+	protected JTable table_1;
+	protected JButton btnBuscarClienteAP;
+	protected JLabel lblDniAC;
+	protected JLabel lblNombreAP;
+	protected JLabel lblPrimerApellidoAP;
+	protected JLabel lblSegundoApellidoAP;
+	protected JLabel lblNombreArticulo;
+	protected JButton btnBuscarArticuloAP;
+	protected JLabel lblCantidadAP;
+	protected JLabel lblPrecioAP;
+	protected JLabel lblNombreArticuloAP;
+	protected JLabel lblRefArticuloPA;
+	protected JButton btnAñadirAP;
+	protected JScrollPane scrollPane;
+	protected JButton btnEliminarLineaAP;
+	protected JButton btnGuardarAP;
+	protected JButton btnLimpiarAP;
 
 	
 	public AltaPedidoUI() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
-		
+			
 		JLabel lblNewLabel = new JLabel("Alta Pedido");
 		lblNewLabel.setFont(new Font("Traditional Arabic", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridwidth = 13;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel.gridx = 0;
 		gbc_lblNewLabel.gridy = 1;
 		add(lblNewLabel, gbc_lblNewLabel);
 		
-		JLabel lblDniAC = new JLabel("D.N.I Cliente");
+		lblDniAC = new JLabel("D.N.I Cliente");
 		GridBagConstraints gbc_lblDniAC = new GridBagConstraints();
 		gbc_lblDniAC.anchor = GridBagConstraints.WEST;
 		gbc_lblDniAC.insets = new Insets(0, 0, 5, 5);
@@ -48,23 +69,23 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblDniAC.gridy = 3;
 		add(lblDniAC, gbc_lblDniAC);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 3;
-		gbc_textField.gridy = 3;
-		add(textField, gbc_textField);
-		textField.setColumns(10);
+		textDniClienteAP = new JTextField();
+		GridBagConstraints gbc_textDniClienteAP = new GridBagConstraints();
+		gbc_textDniClienteAP.insets = new Insets(0, 0, 5, 5);
+		gbc_textDniClienteAP.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textDniClienteAP.gridx = 3;
+		gbc_textDniClienteAP.gridy = 3;
+		add(textDniClienteAP, gbc_textDniClienteAP);
+		textDniClienteAP.setColumns(10);
 		
-		JButton btnBuscarClienteAP = new JButton("Buscar Cliente");
+		btnBuscarClienteAP = new JButton("Buscar Cliente");
 		GridBagConstraints gbc_btnBuscarClienteAP = new GridBagConstraints();
 		gbc_btnBuscarClienteAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnBuscarClienteAP.gridx = 5;
 		gbc_btnBuscarClienteAP.gridy = 3;
 		add(btnBuscarClienteAP, gbc_btnBuscarClienteAP);
 		
-		JLabel lblNombreAP = new JLabel("Nombre ");
+		lblNombreAP = new JLabel("Nombre ");
 		GridBagConstraints gbc_lblNombreAP = new GridBagConstraints();
 		gbc_lblNombreAP.anchor = GridBagConstraints.WEST;
 		gbc_lblNombreAP.insets = new Insets(0, 0, 5, 5);
@@ -72,16 +93,16 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblNombreAP.gridy = 5;
 		add(lblNombreAP, gbc_lblNombreAP);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 3;
-		gbc_textField_1.gridy = 5;
-		add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		textNombreClienteAP = new JTextField();
+		GridBagConstraints gbc_textNombreClienteAP = new GridBagConstraints();
+		gbc_textNombreClienteAP.insets = new Insets(0, 0, 5, 5);
+		gbc_textNombreClienteAP.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textNombreClienteAP.gridx = 3;
+		gbc_textNombreClienteAP.gridy = 5;
+		add(textNombreClienteAP, gbc_textNombreClienteAP);
+		textNombreClienteAP.setColumns(10);
 		
-		JLabel lblPrimerApellidoAP = new JLabel("Primer Apellido");
+		lblPrimerApellidoAP = new JLabel("Primer Apellido");
 		GridBagConstraints gbc_lblPrimerApellidoAP = new GridBagConstraints();
 		gbc_lblPrimerApellidoAP.anchor = GridBagConstraints.WEST;
 		gbc_lblPrimerApellidoAP.insets = new Insets(0, 0, 5, 5);
@@ -89,16 +110,16 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblPrimerApellidoAP.gridy = 7;
 		add(lblPrimerApellidoAP, gbc_lblPrimerApellidoAP);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 3;
-		gbc_textField_2.gridy = 7;
-		add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		textPrimerApeAP = new JTextField();
+		GridBagConstraints gbc_textPrimerApeAP = new GridBagConstraints();
+		gbc_textPrimerApeAP.insets = new Insets(0, 0, 5, 5);
+		gbc_textPrimerApeAP.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textPrimerApeAP.gridx = 3;
+		gbc_textPrimerApeAP.gridy = 7;
+		add(textPrimerApeAP, gbc_textPrimerApeAP);
+		textPrimerApeAP.setColumns(10);
 		
-		JLabel lblSegundoApellidoAP = new JLabel("Segundo Apellido");
+		lblSegundoApellidoAP = new JLabel("Segundo Apellido");
 		GridBagConstraints gbc_lblSegundoApellidoAP = new GridBagConstraints();
 		gbc_lblSegundoApellidoAP.anchor = GridBagConstraints.WEST;
 		gbc_lblSegundoApellidoAP.insets = new Insets(0, 0, 5, 5);
@@ -106,16 +127,16 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblSegundoApellidoAP.gridy = 9;
 		add(lblSegundoApellidoAP, gbc_lblSegundoApellidoAP);
 		
-		textField_3 = new JTextField();
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridx = 3;
-		gbc_textField_3.gridy = 9;
-		add(textField_3, gbc_textField_3);
-		textField_3.setColumns(10);
+		textSegundoApeAP = new JTextField();
+		GridBagConstraints gbc_textSegundoApeAP = new GridBagConstraints();
+		gbc_textSegundoApeAP.insets = new Insets(0, 0, 5, 5);
+		gbc_textSegundoApeAP.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textSegundoApeAP.gridx = 3;
+		gbc_textSegundoApeAP.gridy = 9;
+		add(textSegundoApeAP, gbc_textSegundoApeAP);
+		textSegundoApeAP.setColumns(10);
 		
-		JLabel lblNombreArticulo = new JLabel("Nombre Articulo");
+		lblNombreArticulo = new JLabel("Nombre Articulo");
 		GridBagConstraints gbc_lblNombreArticulo = new GridBagConstraints();
 		gbc_lblNombreArticulo.anchor = GridBagConstraints.ABOVE_BASELINE_LEADING;
 		gbc_lblNombreArticulo.insets = new Insets(0, 0, 5, 5);
@@ -123,44 +144,44 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblNombreArticulo.gridy = 11;
 		add(lblNombreArticulo, gbc_lblNombreArticulo);
 		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridx = 3;
-		gbc_textField_4.gridy = 11;
-		add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
+		textNombreArticuloAP = new JTextField();
+		GridBagConstraints gbc_textNombreArticuloAP = new GridBagConstraints();
+		gbc_textNombreArticuloAP.insets = new Insets(0, 0, 5, 5);
+		gbc_textNombreArticuloAP.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textNombreArticuloAP.gridx = 3;
+		gbc_textNombreArticuloAP.gridy = 11;
+		add(textNombreArticuloAP, gbc_textNombreArticuloAP);
+		textNombreArticuloAP.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Buscar Articulo");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 5;
-		gbc_btnNewButton.gridy = 11;
-		add(btnNewButton, gbc_btnNewButton);
+		btnBuscarArticuloAP = new JButton("Buscar Articulo");
+		GridBagConstraints gbc_btnBuscarArticuloAP = new GridBagConstraints();
+		gbc_btnBuscarArticuloAP.insets = new Insets(0, 0, 5, 5);
+		gbc_btnBuscarArticuloAP.gridx = 5;
+		gbc_btnBuscarArticuloAP.gridy = 11;
+		add(btnBuscarArticuloAP, gbc_btnBuscarArticuloAP);
 		
-		JLabel lblRefArticuloPA = new JLabel("Referencia Articulo");
+		lblRefArticuloPA = new JLabel("Referencia Articulo");
 		GridBagConstraints gbc_lblRefArticuloPA = new GridBagConstraints();
 		gbc_lblRefArticuloPA.insets = new Insets(0, 0, 5, 5);
 		gbc_lblRefArticuloPA.gridx = 1;
 		gbc_lblRefArticuloPA.gridy = 13;
 		add(lblRefArticuloPA, gbc_lblRefArticuloPA);
 		
-		JLabel lblNombreArticuloAP = new JLabel("Nombre Articulo");
+		lblNombreArticuloAP = new JLabel("Nombre Articulo");
 		GridBagConstraints gbc_lblNombreArticuloAP = new GridBagConstraints();
 		gbc_lblNombreArticuloAP.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombreArticuloAP.gridx = 3;
 		gbc_lblNombreArticuloAP.gridy = 13;
 		add(lblNombreArticuloAP, gbc_lblNombreArticuloAP);
 		
-		JLabel lblPrecioAP = new JLabel("Precio");
+		lblPrecioAP = new JLabel("Precio");
 		GridBagConstraints gbc_lblPrecioAP = new GridBagConstraints();
 		gbc_lblPrecioAP.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPrecioAP.gridx = 5;
 		gbc_lblPrecioAP.gridy = 13;
 		add(lblPrecioAP, gbc_lblPrecioAP);
 		
-		JLabel lblCantidadAP = new JLabel("Cantidad");
+		lblCantidadAP = new JLabel("Cantidad");
 		lblCantidadAP.setHorizontalAlignment(SwingConstants.TRAILING);
 		GridBagConstraints gbc_lblCantidadAP = new GridBagConstraints();
 		gbc_lblCantidadAP.insets = new Insets(0, 0, 5, 5);
@@ -204,19 +225,52 @@ public class AltaPedidoUI extends JPanel {
 		add(textCantidadAP, gbc_textCantidadAP);
 		textCantidadAP.setColumns(10);
 		
-		JButton btnAñadirAP = new JButton("A\u00F1adir");
+		btnAñadirAP = new JButton("A\u00F1adir");
 		GridBagConstraints gbc_btnAñadirAP = new GridBagConstraints();
 		gbc_btnAñadirAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAñadirAP.gridx = 9;
 		gbc_btnAñadirAP.gridy = 15;
 		add(btnAñadirAP, gbc_btnAñadirAP);
 		
-		JButton btnLimpiarAP = new JButton("Limpiar");
+		btnLimpiarAP = new JButton("Limpiar");
 		GridBagConstraints gbc_btnLimpiarAP = new GridBagConstraints();
 		gbc_btnLimpiarAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLimpiarAP.gridx = 11;
 		gbc_btnLimpiarAP.gridy = 15;
 		add(btnLimpiarAP, gbc_btnLimpiarAP);
+		
+		scrollPane = new JScrollPane();
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.gridwidth = 9;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridx = 1;
+		gbc_scrollPane.gridy = 17;
+		add(scrollPane, gbc_scrollPane);
+		
+		table_1 = new JTable();
+		String[] columnas = {"Numero Linea", "Nombre del Articulo", "Cantidad"};
+		table_1.setModel(new DefaultTableModel(columnas, 0){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return column == 2;
+			}
+		});
+		scrollPane.setViewportView(table_1);
+		
+		btnEliminarLineaAP = new JButton("Eliminar Linea");
+		GridBagConstraints gbc_btnEliminarLineaAP = new GridBagConstraints();
+		gbc_btnEliminarLineaAP.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEliminarLineaAP.gridx = 11;
+		gbc_btnEliminarLineaAP.gridy = 17;
+		add(btnEliminarLineaAP, gbc_btnEliminarLineaAP);
+		
+		btnGuardarAP = new JButton("Guardar");
+		GridBagConstraints gbc_btnGuardarAP = new GridBagConstraints();
+		gbc_btnGuardarAP.insets = new Insets(0, 0, 5, 5);
+		gbc_btnGuardarAP.gridx = 11;
+		gbc_btnGuardarAP.gridy = 19;
+		add(btnGuardarAP, gbc_btnGuardarAP);
 
 
 	}
