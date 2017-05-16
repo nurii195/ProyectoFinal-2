@@ -1,6 +1,10 @@
 package Test;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+
+import org.junit.Before;
 import org.junit.Test;
 import Controlador.GestorArticulo;
 import Controlador.GestorObjetos;
@@ -8,11 +12,20 @@ import Modelo.Articulo;
 
 
 public class GestorArticuloTest {
+	
+	@Before
+	public void init(){
+	File file = new File("archivoTestArticulo");
+		if(file.exists())
+			file.delete();
+	}
 
 	@Test
 	public void testAlta() {
-		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaArticulo");
-		GestorArticulo instancia=new GestorArticulo(gestorArchivoCliente);
+
+		GestorObjetos gestorArchivoArticulo = new GestorObjetos("archivoTestArticulo");		
+		GestorArticulo instancia=new GestorArticulo(gestorArchivoArticulo);
+
 		Articulo articulo=new Articulo();
 		articulo.setIdArticulo(1);
 		articulo.setNombreArticulo("martillo");
@@ -47,8 +60,11 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testConsulta() {
-		GestorObjetos gestorArchivoCliente = new GestorObjetos("archivoTestAltaArticulo");
-		GestorArticulo instancia=new GestorArticulo(gestorArchivoCliente);
+
+		
+		GestorObjetos gestorArchivoArticulo = new GestorObjetos("archivoTestArticulo");		
+		GestorArticulo instancia=new GestorArticulo(gestorArchivoArticulo);
+
 		Articulo articuloUno=new Articulo();
 		Articulo articuloDos=new Articulo();
 		

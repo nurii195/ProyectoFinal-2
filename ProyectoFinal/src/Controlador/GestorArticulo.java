@@ -14,12 +14,14 @@ public class GestorArticulo implements IGestorABMC {
 		super();
 		this.gestorObjecto = gestorObjecto;
 		Object nextObject = gestorObjecto.getNextObject();
+
 		if (nextObject != null && nextObject instanceof ArrayList) {
 			articulos = (ArrayList<Articulo>) nextObject;
 
 			for (Articulo articulo : articulos) {
 				if (articulo.getIdArticulo() > idArticulo) {
 					idArticulo = articulo.getIdArticulo();
+
 				}
 			}
 			idArticulo++;
@@ -34,6 +36,7 @@ public class GestorArticulo implements IGestorABMC {
 
 			Object articuloAntiguo = consulta(articulo.getNombreArticulo());
 			if (articuloAntiguo == null) {
+
 				articulo.setIdArticulo(idArticulo);
 
 				articulos.add(articulo);
@@ -47,6 +50,7 @@ public class GestorArticulo implements IGestorABMC {
 					articulos.remove(articulo);
 					return false;
 				}
+
 			}
 		}
 		return false;
