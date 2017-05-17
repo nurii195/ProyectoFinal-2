@@ -28,6 +28,15 @@ public class GestorPedido implements IGestorABMC {
 	public boolean alta(Object object) {
 		if (object instanceof Pedido) {
 			Pedido pedido = (Pedido) object;
+			if (pedido.getCliente()==null) {
+				return false;
+			}
+			if (pedido.getLineasPedidos()==null) {
+				return false;
+			}
+			if (pedido.getLineasPedidos().size()==0) {
+				return false;
+			}
 			Object consultaPedido = consulta(String.valueOf(pedido.getIdPedido()));
 			if (consultaPedido == null) {
 				pedido.setIdPedido(idPedido);
