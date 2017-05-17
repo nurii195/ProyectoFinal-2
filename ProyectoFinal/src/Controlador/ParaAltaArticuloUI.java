@@ -43,11 +43,11 @@ public class ParaAltaArticuloUI extends AltaArtiUI {
 						}
 
 					} else {
-						JOptionPane.showMessageDialog(null, "Revise los campos algo falla");
+						JOptionPane.showMessageDialog(null, "Informacion incompleta, revise los campos");
 					}
 
 				} catch (NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "El precio tiene que ir formato numero");
+					JOptionPane.showMessageDialog(null, "Precio numero separador numerico");
 					// e1.printStackTrace();
 				}
 

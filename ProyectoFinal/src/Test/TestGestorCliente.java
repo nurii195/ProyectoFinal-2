@@ -41,7 +41,7 @@ public class TestGestorCliente {
 		Cliente clienteDos = new Cliente();
 		clienteDos.setDni(null);
 		boolean alta3=instancia.alta(clienteDos);
-		assertNull(alta3);
+		assertFalse(alta3);
 		
 		boolean alta4=instancia.alta(null);
 		assertFalse(alta4);
@@ -49,6 +49,8 @@ public class TestGestorCliente {
 		boolean alta5=instancia.alta("Mariflores");
 		assertFalse(alta5);
 		
+		Cliente vacio= new Cliente();
+		assertFalse(instancia.alta(vacio));
 		
 		
 	}
