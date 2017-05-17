@@ -32,10 +32,10 @@ public class GestorPedido implements IGestorABMC {
 			if (consultaPedido == null) {
 				pedido.setIdPedido(idPedido);
 
-				boolean replaceObjects = gestorObjecto.replaceObjects(pedido);
+				pedidos.add(pedido);
+				boolean replaceObjects = gestorObjecto.replaceObjects(pedidos);
 
 				if (replaceObjects) {
-					pedidos.add(pedido);
 					idPedido++;
 					return true;
 				} else {

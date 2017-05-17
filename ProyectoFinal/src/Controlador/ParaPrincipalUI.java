@@ -14,6 +14,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 	private GestorCliente gCliente;
 	private GestorArticulo gArticulo;
 	private GestorPedido gPedido;
+	private GestorObjetos gestorArchivoPed;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -34,6 +35,9 @@ public class ParaPrincipalUI extends PrincipalUI {
 		gestorArchivoArticulo = new GestorObjetos(rutasFicheros.rutaArticulo);
 		gCliente = new GestorCliente(gestorArchivoCliente);
 		gArticulo = new GestorArticulo(gestorArchivoArticulo);
+		
+		gestorArchivoPed = new GestorObjetos(rutasFicheros.rutaPedido);
+		gPedido = new GestorPedido(gestorArchivoPed);
 
 		mntmConsult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +85,9 @@ public class ParaPrincipalUI extends PrincipalUI {
 		});
 		mntmPedidoAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				ParaAltaPedidoUI alta= new ParaAltaPedidoUI(gArticulo, gCliente, gPedido);
+				setContentPane(alta);
+				ParaPrincipalUI.this.revalidate();
 			}
 		});
 		
