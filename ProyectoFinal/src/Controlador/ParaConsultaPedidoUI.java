@@ -55,7 +55,7 @@ public class ParaConsultaPedidoUI extends ConsultaPedidoUI {
 			LineaPedido lineaPedido = lineasPedidos.get(i);
 			Object[] datos = new Object[3];
 			datos[0]=lineaPedido.getIdLineaPedido();
-			datos[1]=lineaPedido.getArticulo();
+			datos[1]=lineaPedido.getArticulo().getNombreArticulo();
 			datos[2]=lineaPedido.getCantidad();
 			model.addRow(datos);
 
