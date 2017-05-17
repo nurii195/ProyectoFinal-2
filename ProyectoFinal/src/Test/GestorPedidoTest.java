@@ -3,10 +3,12 @@ package Test;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import Controlador.GestorArticulo;
 import Controlador.GestorObjetos;
 import Controlador.GestorPedido;
 import Modelo.Articulo;
@@ -26,6 +28,40 @@ public class GestorPedidoTest {
 
 	@Test
 	public void testAlta() {
+		
+		GestorObjetos gestorArchivoPedido = new GestorObjetos("archivoTestAltaPedido");		
+		GestorArticulo instancia=new GestorArticulo(gestorArchivoPedido);
+		
+		Cliente cliente=new Cliente();
+		cliente.setDni("64894984984G");
+		cliente.setNombre("Paco");
+		cliente.setPrimerApellido("Hernan");
+		cliente.setSegundoApellido("Gonzalez");
+		cliente.setId(1);
+		
+		Articulo articulo=new Articulo();
+		articulo.setIdArticulo(1);
+		articulo.setNombreArticulo("martillo");
+		articulo.setDescripcion("articulo para golpear");
+		articulo.setPrecio(10.20f);
+		articulo.setBaja(false);
+		
+
+		ArrayList<LineaPedido> lineas = new ArrayList<>();
+		LineaPedido linea = new LineaPedido();
+		lineas.add(linea);
+		
+		Pedido pedido = new Pedido();
+		pedido.setCliente(cliente);
+		pedido.setFecha("Hoy");
+		pedido.setIdPedido(1);
+		pedido.setLineasPedidos(lineas);
+		
+		linea.setArticulo(articulo);
+		linea.setCantidad(3);
+		linea.setIdLineaPedido(1);
+		
+		
 	
 	}
 
