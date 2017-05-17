@@ -25,12 +25,11 @@ public class GestorPedidoTest {
 			file.delete();
 	}
 	
-
 	@Test
 	public void testAlta() {
 		
 		GestorObjetos gestorArchivoPedido = new GestorObjetos("archivoTestAltaPedido");		
-		GestorArticulo instancia=new GestorArticulo(gestorArchivoPedido);
+		GestorPedido instancia=new GestorPedido(gestorArchivoPedido);
 		
 		Cliente cliente=new Cliente();
 		cliente.setDni("64894984984G");
@@ -54,14 +53,34 @@ public class GestorPedidoTest {
 		Pedido pedido = new Pedido();
 		pedido.setCliente(cliente);
 		pedido.setFecha("Hoy");
-		pedido.setIdPedido(1);
 		pedido.setLineasPedidos(lineas);
 		
 		linea.setArticulo(articulo);
 		linea.setCantidad(3);
 		linea.setIdLineaPedido(1);
 		
+		boolean alta = instancia.alta(pedido);
+		assertTrue(alta);
 		
+		//-------------------------------------
+		Pedido pedido2 = new Pedido();
+		pedido2.setCliente(null);
+		boolean alta2 = instancia.alta(pedido2);
+		assertFalse(alta2);
+		
+		//-------------------------------
+		pedido2.setIdPedido(-1);
+		pedido2.setCliente(cliente);
+		pedido2.setLineasPedidos(null);
+		boolean alta3 = instancia.alta(pedido2);
+		assertFalse(alta3);
+		
+		//----------------------------------
+		//si las lineas de pedido es un array pero esta vacío
+		pedido2.setIdPedido(-1);
+		pedido2.setLineasPedidos(new ArrayList<>());
+		boolean alta4 = instancia.alta(pedido2);
+		assertFalse(alta4);
 	
 	}
 

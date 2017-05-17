@@ -38,7 +38,6 @@ public class ParaConsultaArticuloUI extends ConsultaArtiUI {
 
 				} else {
 					textRespuesta.setText("El articulo no existe");
-					textRespuesta.setText("El campo nombre está vacío");
 				}
 
 			}
