@@ -30,7 +30,7 @@ public class ParaAltaClienteUI extends AltaClienteUI {
 					textNumeroClienteCA.setText(String.valueOf(cliente.getId()));
 					JOptionPane.showMessageDialog(null, "Cliente dado de alta correctamente");
 				} else {
-					JOptionPane.showMessageDialog(null, "Revise los campos nos se ha dado de alta correctamente");
+					JOptionPane.showMessageDialog(null, "Revise los campos, no se ha dado de alta correctamente");
 				}
 
 			}
