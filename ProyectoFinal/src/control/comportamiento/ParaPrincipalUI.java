@@ -1,10 +1,17 @@
-package Controlador;
+package control.comportamiento;
 
 import java.awt.EventQueue;
 import Vista.PrincipalUI;
+import comportamiento.logica.GestorArticulo;
+import comportamiento.logica.GestorCliente;
+import comportamiento.logica.GestorPedido;
 import rutas.rutasFicheros;
 
 import java.awt.event.ActionListener;
+
+import Modelo.GestorObjetos;
+import Modelo.IObjeto;
+
 import java.awt.event.ActionEvent;
 
 public class ParaPrincipalUI extends PrincipalUI {
@@ -16,19 +23,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 	private GestorPedido gPedido;
 	private GestorObjetos gestorArchivoPed;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ParaPrincipalUI frame = new ParaPrincipalUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	public ParaPrincipalUI() {
 		super();
 		gestorArchivoCliente = new GestorObjetos(rutasFicheros.rutaCliente);

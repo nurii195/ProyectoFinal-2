@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import Controlador.GestorArticulo;
-import Controlador.GestorObjetos;
-import Controlador.GestorPedido;
 import Modelo.Articulo;
 import Modelo.Cliente;
+import Modelo.GestorObjetos;
 import Modelo.LineaPedido;
 import Modelo.Pedido;
+import comportamiento.logica.GestorArticulo;
+import comportamiento.logica.GestorPedido;
 
 public class GestorPedidoTest {
 	

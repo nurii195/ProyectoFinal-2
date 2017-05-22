@@ -1,6 +1,8 @@
-package Controlador;
+package control.comportamiento;
 
 import Vista.ConsultaClienteUI;
+import comportamiento.logica.GestorCliente;
+
 import java.awt.event.ActionListener;
 
 import Modelo.Cliente;

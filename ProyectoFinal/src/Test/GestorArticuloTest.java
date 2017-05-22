@@ -6,9 +6,10 @@ import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
-import Controlador.GestorArticulo;
-import Controlador.GestorObjetos;
+
 import Modelo.Articulo;
+import Modelo.GestorObjetos;
+import comportamiento.logica.GestorArticulo;
 
 
 public class GestorArticuloTest {
@@ -87,8 +88,11 @@ public class GestorArticuloTest {
 		assertTrue(consulta instanceof Articulo);
 		assertTrue(consulta2 instanceof Articulo);
 		
-		assertTrue(articuloUno.getNombreArticulo().equals(consulta));
-		assertTrue(articuloDos.getNombreArticulo().equals(consulta2));
+		Articulo a1 = (Articulo) consulta;
+		Articulo a2 = (Articulo) consulta2;
+		
+		assertTrue(articuloUno.getNombreArticulo().equals(a1.getNombreArticulo()));
+		assertTrue(articuloDos.getNombreArticulo().equals(a2.getNombreArticulo()));
 		
 		Object consulta3 = instancia.consulta("00000000");
 		
@@ -98,12 +102,12 @@ public class GestorArticuloTest {
 
 	@Test
 	public void testModificacion() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testBaja() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }

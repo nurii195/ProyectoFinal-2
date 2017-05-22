@@ -1,4 +1,4 @@
-package Controlador;
+package control.comportamiento;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -9,6 +9,8 @@ import Modelo.Cliente;
 import Modelo.LineaPedido;
 import Modelo.Pedido;
 import Vista.ConsultaPedidoUI;
+import comportamiento.logica.IGestorABMC;
+
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
