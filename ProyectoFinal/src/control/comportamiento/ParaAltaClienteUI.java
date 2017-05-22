@@ -1,8 +1,11 @@
-package Controlador;
+package control.comportamiento;
 
 import Vista.AltaClienteUI;
+import comportamiento.logica.GestorCliente;
+
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+
 import Modelo.Cliente;
 import java.awt.event.ActionEvent;
 

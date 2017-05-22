@@ -1,4 +1,4 @@
-package Controlador;
+package control.comportamiento;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import Modelo.Articulo;
 import Vista.AltaArtiUI;
+import comportamiento.logica.GestorArticulo;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

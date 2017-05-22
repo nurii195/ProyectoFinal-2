@@ -1,4 +1,4 @@
-package Controlador;
+package control.comportamiento;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -10,6 +10,10 @@ import Modelo.Cliente;
 import Modelo.LineaPedido;
 import Modelo.Pedido;
 import Vista.AltaPedidoUI;
+import comportamiento.logica.GestorArticulo;
+import comportamiento.logica.GestorCliente;
+import comportamiento.logica.GestorPedido;
+
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;

@@ -1,4 +1,4 @@
-package Controlador;
+package comportamiento.logica;
 
 public interface IGestorABMC {
 	

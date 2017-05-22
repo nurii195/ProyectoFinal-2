@@ -6,9 +6,10 @@ import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
-import Controlador.GestorCliente;
-import Controlador.GestorObjetos;
+
 import Modelo.Cliente;
+import Modelo.GestorObjetos;
+import comportamiento.logica.GestorCliente;
 import rutas.rutasFicheros;
 
 public class TestGestorCliente {
@@ -63,9 +64,15 @@ public class TestGestorCliente {
 		Cliente cliente1 = new Cliente();
 		Cliente cliente2 = new Cliente();
 		cliente1.setDni("02451247B");
+		cliente1.setNombre("besis");
+		cliente1.setPrimerApellido("para");
+		cliente1.setSegundoApellido("ti");
 		boolean alta = instancia.alta(cliente1);
 		
 		cliente2.setDni("14278549T");
+		cliente2.setNombre("besis");
+		cliente2.setPrimerApellido("para");
+		cliente2.setSegundoApellido("ti");
 		boolean alta2 = instancia.alta(cliente2);
 		
 		Object consulta = instancia.consulta(cliente1.getDni());
@@ -80,8 +87,11 @@ public class TestGestorCliente {
 		assertTrue(consulta instanceof Cliente);
 		assertTrue(consulta2 instanceof Cliente);
 		
-		assertTrue(cliente1.getDni().equals(consulta));
-		assertTrue(cliente2.getDni().equals(consulta2));
+		Cliente c1 = (Cliente)consulta;
+		Cliente c2 = (Cliente)consulta2;
+		
+		assertTrue(cliente1.getDni().equals(c1.getDni()));
+		assertTrue(cliente2.getDni().equals(c2.getDni()));
 		
 		Object consulta3 = instancia.consulta("00000000");
 		
