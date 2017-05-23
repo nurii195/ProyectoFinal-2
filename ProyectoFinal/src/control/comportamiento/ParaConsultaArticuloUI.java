@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Modelo.Articulo;
-import Vista.ConsultaArtiUI;
 import comportamiento.logica.GestorArticulo;
+import modelo.Articulo;
+import vista.articulo.ConsultaArtiUI;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

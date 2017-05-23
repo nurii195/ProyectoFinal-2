@@ -8,9 +8,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Modelo.Articulo;
-import Vista.AltaArtiUI;
 import comportamiento.logica.GestorArticulo;
+import modelo.Articulo;
+import vista.articulo.AltaArtiUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package Vista;
+package vista.pedido;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -10,9 +10,14 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.Articulo;
+
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class AltaPedidoUI extends JPanel {
@@ -43,13 +48,14 @@ public class AltaPedidoUI extends JPanel {
 	protected JButton btnGuardarAP;
 	protected JButton btnLimpiarAP;
 
+
 	
 	public AltaPedidoUI() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 			
 		JLabel lblNewLabel = new JLabel("Alta Pedido");
@@ -135,7 +141,7 @@ public class AltaPedidoUI extends JPanel {
 		gbc_textSegundoApeAP.gridy = 9;
 		add(textSegundoApeAP, gbc_textSegundoApeAP);
 		textSegundoApeAP.setColumns(10);
-		
+				
 		lblNombreArticulo = new JLabel("Nombre Articulo");
 		GridBagConstraints gbc_lblNombreArticulo = new GridBagConstraints();
 		gbc_lblNombreArticulo.anchor = GridBagConstraints.ABOVE_BASELINE_LEADING;

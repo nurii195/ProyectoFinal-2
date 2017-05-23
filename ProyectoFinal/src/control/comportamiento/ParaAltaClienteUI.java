@@ -1,12 +1,12 @@
 package control.comportamiento;
 
-import Vista.AltaClienteUI;
 import comportamiento.logica.GestorCliente;
+import modelo.Cliente;
+import vista.cliente.AltaClienteUI;
 
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-import Modelo.Cliente;
 import java.awt.event.ActionEvent;
 
 public class ParaAltaClienteUI extends AltaClienteUI {

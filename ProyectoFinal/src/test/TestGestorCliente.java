@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -7,10 +7,10 @@ import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
 
-import Modelo.Cliente;
-import Modelo.GestorObjetos;
 import comportamiento.logica.GestorCliente;
-import rutas.rutasFicheros;
+import modelo.Cliente;
+import modelo.GestorObjetos;
+import rutas.RutasFicheros;
 
 public class TestGestorCliente {
 	

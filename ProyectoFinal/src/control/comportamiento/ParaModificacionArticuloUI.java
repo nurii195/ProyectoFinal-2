@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Vista.ModificacionArtiUI;
 import comportamiento.logica.GestorArticulo;
+import vista.articulo.ModificacionArtiUI;
 
 
 public class ParaModificacionArticuloUI extends ModificacionArtiUI {

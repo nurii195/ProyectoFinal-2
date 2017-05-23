@@ -1,6 +1,8 @@
-package Vista;
+package vista.cliente;
 import javax.swing.JPanel;
-import Modelo.Cliente;
+
+import modelo.Cliente;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;

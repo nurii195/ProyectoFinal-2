@@ -1,10 +1,9 @@
-package Vista;
+package vista.articulo;
 
 
 
 import javax.swing.JPanel;
 
-import Modelo.Articulo;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -12,6 +11,9 @@ import javax.swing.JComboBox;
 import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import modelo.Articulo;
+
 import java.awt.Font;
 
 public class ModificacionArtiUI extends JPanel {

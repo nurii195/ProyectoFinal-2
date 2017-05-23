@@ -1,7 +1,7 @@
 package comportamiento.logica;
 
-import Modelo.IObjeto;
-import Modelo.Pedido;
+import modelo.IObjeto;
+import modelo.Pedido;
 
 public class GestorPedido extends AbstractGestor {
 

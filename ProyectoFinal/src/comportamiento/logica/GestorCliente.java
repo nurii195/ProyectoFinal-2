@@ -1,7 +1,7 @@
 package comportamiento.logica;
 
-import Modelo.Cliente;
-import Modelo.IObjeto;
+import modelo.Cliente;
+import modelo.IObjeto;
 
 public class GestorCliente extends AbstractGestor {
 
@@ -35,11 +35,28 @@ public class GestorCliente extends AbstractGestor {
 				return false;
 			}
 			
+			if(!dniValido(cliente.getDni()))
+				return false;
+			
 			cliente.setId(id);
 			Object clienteAntiguo = consulta(cliente.getDni());
 			if(clienteAntiguo == null){
 				return true;
 			}
+		}
+		return false;
+	}
+
+	private boolean dniValido(String dni) {
+		try{
+			String numeros = dni.substring(0, dni.length()-2);
+			char letra = dni.charAt(dni.length()-1);
+		
+			Long.valueOf(numeros);
+			if(Character.isLetter(letra) && dni.length() == 9)
+				return true;
+		} catch(Exception e){
+			//no es valido
 		}
 		return false;
 	}
