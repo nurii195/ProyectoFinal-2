@@ -91,4 +91,11 @@ public abstract class AbstractGestor implements IGestorABMC {
 	protected abstract boolean esValidoParaAlta(Object obj);
 
 	protected abstract boolean coincideBusqueda(Object obj, String name);
+
+
+	public ArrayList<Object> getLista() {
+		return lista;
+	}
+	
+	
 }

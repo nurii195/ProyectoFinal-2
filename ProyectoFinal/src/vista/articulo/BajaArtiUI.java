@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JComboBox;
 import java.awt.Insets;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Font;
 
@@ -39,6 +41,9 @@ public class BajaArtiUI extends JPanel {
 		gbc_comboBox.gridx = 3;
 		gbc_comboBox.gridy = 4;
 		add(comboBox, gbc_comboBox);
+		
+		DefaultComboBoxModel<Articulo> model = new DefaultComboBoxModel<>();
+		comboBox.setModel(model);
 		
 		btnDarDeBaja = new JButton("Dar de baja");
 		GridBagConstraints gbc_btnDarDeBaja = new GridBagConstraints();
