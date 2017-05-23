@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -7,9 +7,9 @@ import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
 
-import Modelo.Articulo;
-import Modelo.GestorObjetos;
 import comportamiento.logica.GestorArticulo;
+import modelo.Articulo;
+import modelo.GestorObjetos;
 
 
 public class GestorArticuloTest {

@@ -10,6 +10,7 @@ public class Principal {
 			public void run() {
 				try {
 					ParaPrincipalUI frame = new ParaPrincipalUI();
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

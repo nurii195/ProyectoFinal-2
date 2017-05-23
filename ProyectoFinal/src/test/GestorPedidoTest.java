@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import Modelo.Articulo;
-import Modelo.Cliente;
-import Modelo.GestorObjetos;
-import Modelo.LineaPedido;
-import Modelo.Pedido;
 import comportamiento.logica.GestorArticulo;
 import comportamiento.logica.GestorPedido;
+import modelo.Articulo;
+import modelo.Cliente;
+import modelo.GestorObjetos;
+import modelo.LineaPedido;
+import modelo.Pedido;
 
 public class GestorPedidoTest {
 	

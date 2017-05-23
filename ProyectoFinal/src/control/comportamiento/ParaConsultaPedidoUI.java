@@ -5,11 +5,11 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import Modelo.Cliente;
-import Modelo.LineaPedido;
-import Modelo.Pedido;
-import Vista.ConsultaPedidoUI;
 import comportamiento.logica.IGestorABMC;
+import modelo.Cliente;
+import modelo.LineaPedido;
+import modelo.Pedido;
+import vista.pedido.ConsultaPedidoUI;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

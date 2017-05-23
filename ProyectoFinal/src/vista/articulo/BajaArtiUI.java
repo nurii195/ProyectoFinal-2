@@ -1,8 +1,8 @@
-package Vista;
+package vista.articulo;
 
 import javax.swing.JPanel;
 
-import Modelo.Articulo;
+import modelo.Articulo;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;

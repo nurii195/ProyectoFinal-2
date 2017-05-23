@@ -1,12 +1,10 @@
 package control.comportamiento;
 
-import Vista.ConsultaClienteUI;
 import comportamiento.logica.GestorCliente;
+import modelo.Cliente;
+import vista.cliente.ConsultaClienteUI;
 
 import java.awt.event.ActionListener;
-
-import Modelo.Cliente;
-
 import java.awt.event.ActionEvent;
 
 public class ParaConsultaClienteUI extends ConsultaClienteUI {

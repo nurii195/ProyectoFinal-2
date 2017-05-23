@@ -2,7 +2,7 @@ package comportamiento.logica;
 
 import java.util.ArrayList;
 
-import Modelo.IObjeto;
+import modelo.IObjeto;
 
 public abstract class AbstractGestor implements IGestorABMC {
 
@@ -16,8 +16,8 @@ public abstract class AbstractGestor implements IGestorABMC {
 		Object nextObject = gestor.getNextObject();
 		if(nextObject != null && nextObject instanceof  ArrayList){
 			objects = (ArrayList) nextObject;
-			id = ultimoId() + 1;			
 		}
+		id = ultimoId() + 1;			
 	}
 
 	

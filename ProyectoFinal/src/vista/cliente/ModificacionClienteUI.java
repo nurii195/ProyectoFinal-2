@@ -1,4 +1,4 @@
-package Vista;
+package vista.cliente;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;

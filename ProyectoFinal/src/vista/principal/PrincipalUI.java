@@ -1,4 +1,4 @@
-package Vista;
+package vista.principal;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -6,6 +6,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
 
 public class PrincipalUI extends JFrame {
 
@@ -25,11 +32,24 @@ public class PrincipalUI extends JFrame {
 	protected JMenuItem mntmPedidoConsulta;
 	protected JMenuItem mntmPedidoBaja;
 	protected JMenuItem mntmPedidoModif;
+	private JLabel lblTuFerretería;
 
 
 	public PrincipalUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		JPanelBackground p = new JPanelBackground();
+		p.setBackground("FondoTrans.jpg");
+		p.setBorder(new EmptyBorder(5, 5, 5, 5));
+		p.setLayout(new BorderLayout(0, 0));
+		setContentPane(p);
+		
+		lblTuFerretería = new JLabel("Tu Ferreter\u00EDa");
+		lblTuFerretería.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTuFerretería.setForeground(Color.ORANGE);
+		lblTuFerretería.setFont(new Font("Segoe Print", Font.PLAIN, 47));
+		p.add(lblTuFerretería, BorderLayout.NORTH);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -80,6 +100,7 @@ public class PrincipalUI extends JFrame {
 		
 		mntmPedidoModif = new JMenuItem("Modificacion");
 		mnPedido.add(mntmPedidoModif);
+		
 		
 
 	}

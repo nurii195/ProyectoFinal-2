@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Vista.BajaArtiUI;
 import comportamiento.logica.GestorArticulo;
+import vista.articulo.BajaArtiUI;
 
 
 public class ParaBajaArticuloUI extends BajaArtiUI {
