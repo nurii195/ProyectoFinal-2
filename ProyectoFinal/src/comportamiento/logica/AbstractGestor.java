@@ -6,7 +6,7 @@ import modelo.IObjeto;
 
 public abstract class AbstractGestor implements IGestorABMC {
 
-	protected ArrayList<Object> objects = new ArrayList<>();
+	protected ArrayList<Object> lista = new ArrayList<>();
 	private final IObjeto gestor;
 	protected int id = 0;
 	
@@ -15,7 +15,7 @@ public abstract class AbstractGestor implements IGestorABMC {
 		this.gestor = gestorObject;
 		Object nextObject = gestor.getNextObject();
 		if(nextObject != null && nextObject instanceof  ArrayList){
-			objects = (ArrayList) nextObject;
+			lista = (ArrayList) nextObject;
 		}
 		id = ultimoId() + 1;			
 	}
@@ -24,14 +24,14 @@ public abstract class AbstractGestor implements IGestorABMC {
 	@Override
 	public boolean alta(Object object) {
 			if (esValidoParaAlta(object)) {
-				objects.add(object);
-				boolean replaceObjects = gestor.replaceObjects(object);
+				lista.add(object);
+				boolean replaceObjects = gestor.replaceObjects(lista);
 
 				if (replaceObjects) {
 					id++;
 					return true;
 				} else {
-					objects.remove(object);
+					lista.remove(object);
 					return false;
 				}
 			}
@@ -41,7 +41,7 @@ public abstract class AbstractGestor implements IGestorABMC {
 	@Override
 	public Object consulta(String id) {
 		try {
-			for (Object obj : objects) {
+			for (Object obj : lista) {
 				if (coincideBusqueda(obj, id)) {
 					return obj;
 				}
@@ -54,11 +54,35 @@ public abstract class AbstractGestor implements IGestorABMC {
 
 	@Override
 	public boolean modificacion(Object object) {
+		int index = lista.indexOf(object);
+		if(index != -1){
+			Object viejo = lista.set(index, object);
+			boolean replaceObjects = gestor.replaceObjects(lista);
+
+			if (replaceObjects) {
+				return true;
+			} else {
+				lista.set(index, viejo);
+				return false;
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean baja(Object object) {
+		int index = lista.indexOf(object);
+		if(index != -1){
+			Object viejo = lista.remove(index);
+			boolean replaceObjects = gestor.replaceObjects(lista);
+
+			if (replaceObjects) {
+				return true;
+			} else {
+				lista.add(index, viejo);
+				return false;
+			}
+		}
 		return false;
 	}
 	
@@ -67,4 +91,11 @@ public abstract class AbstractGestor implements IGestorABMC {
 	protected abstract boolean esValidoParaAlta(Object obj);
 
 	protected abstract boolean coincideBusqueda(Object obj, String name);
+
+
+	public ArrayList<Object> getLista() {
+		return lista;
+	}
+	
+	
 }
