@@ -7,23 +7,27 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+import modelo.Cliente;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 
 public class ModificacionClienteUI extends JPanel {
 	
-	private JTextField textNombreCM;
-	private JTextField textPrimerACM;
-	private JTextField textSegundoACM;
-	private JTextField textDNI_CM;
-	private JLabel lblModCliente;
-	private JComboBox comboBoxModCliente;
-	private JLabel lblNombre;
-	private JLabel lblPrimerA;
-	private JLabel lblSegundo;
-	private JLabel lblDni;
-	private JButton btnGuardarModCliente;
+	protected JTextField textNombreCM;
+	protected JTextField textPrimerACM;
+	protected JTextField textSegundoACM;
+	protected JTextField textDNI_CM;
+	protected JLabel lblModCliente;
+	protected JComboBox<Cliente> comboBoxModCliente;
+	protected JLabel lblNombre;
+	protected JLabel lblPrimerA;
+	protected JLabel lblSegundo;
+	protected JLabel lblDni;
+	protected JButton btnGuardarModCliente;
+	
 	public ModificacionClienteUI() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
@@ -42,7 +46,7 @@ public class ModificacionClienteUI extends JPanel {
 		gbc_lblModCliente.gridy = 1;
 		add(lblModCliente, gbc_lblModCliente);
 		
-		comboBoxModCliente = new JComboBox();
+		comboBoxModCliente = new JComboBox<Cliente>();
 		GridBagConstraints gbc_comboBoxModCliente = new GridBagConstraints();
 		gbc_comboBoxModCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBoxModCliente.fill = GridBagConstraints.HORIZONTAL;
