@@ -13,9 +13,9 @@ import comportamiento.articulo.ParaBajaArticuloUI;
 import comportamiento.articulo.ParaConsultaArticuloUI;
 import comportamiento.articulo.ParaModificacionArticuloUI;
 import comportamiento.cliente.ParaAltaClienteUI;
-import comportamiento.cliente.ParaBajaCliente;
+import comportamiento.cliente.ParaBajaClienteUI;
 import comportamiento.cliente.ParaConsultaClienteUI;
-import comportamiento.cliente.ParaModCliente;
+import comportamiento.cliente.ParaModificacionClienteUI;
 import comportamiento.pedido.ParaAltaPedidoUI;
 import comportamiento.pedido.ParaConsultaPedidoUI;
 import modelo.GestorObjetos;
@@ -68,7 +68,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 		});
 		mntmBaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ParaBajaCliente baja = new ParaBajaCliente(gCliente);
+				ParaBajaClienteUI baja = new ParaBajaClienteUI(gCliente);
 				cambiarPanel(baja);
 
 			}
@@ -76,7 +76,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 		
 		mntmMo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ParaModCliente modifi = new ParaModCliente(gCliente);
+				ParaModificacionClienteUI modifi = new ParaModificacionClienteUI(gCliente);
 				cambiarPanel(modifi);
 
 			}
