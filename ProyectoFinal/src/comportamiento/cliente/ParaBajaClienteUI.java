@@ -26,7 +26,7 @@ public class ParaBajaClienteUI extends BajaClienteUI {
 			public void actionPerformed(ActionEvent e) {
 				DefaultComboBoxModel<Cliente> model = (DefaultComboBoxModel<Cliente>) comboBoxBajaCliente.getModel();
 				Object selectedItem = comboBoxBajaCliente.getSelectedItem();
-				if (selectedItem instanceof Articulo) {
+				if (selectedItem instanceof Cliente) {
 					Cliente cliente = (Cliente) selectedItem;
 					boolean baja = gCliente.baja(cliente);
 					if (baja) {

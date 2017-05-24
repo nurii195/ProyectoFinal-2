@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
@@ -28,7 +29,6 @@ public class AltaPedidoUI extends JPanel {
 	protected JTextField textNombreClienteAP;
 	protected JTextField textPrimerApeAP;
 	protected JTextField textSegundoApeAP;
-	protected JTextField textNombreArticuloAP;
 	protected JTextField textRefArticuloAP;
 	protected JTextField textNombreArtAP;
 	protected JTextField textPrecioAP;
@@ -40,7 +40,6 @@ public class AltaPedidoUI extends JPanel {
 	protected JLabel lblPrimerApellidoAP;
 	protected JLabel lblSegundoApellidoAP;
 	protected JLabel lblNombreArticulo;
-	protected JButton btnBuscarArticuloAP;
 	protected JLabel lblCantidadAP;
 	protected JLabel lblPrecioAP;
 	protected JLabel lblNombreArticuloAP;
@@ -50,8 +49,10 @@ public class AltaPedidoUI extends JPanel {
 	protected JButton btnEliminarLineaAP;
 	protected JButton btnGuardarAP;
 	protected JButton btnLimpiarAP;
-	private JPanel panel;
-	private JPanel panel_1;
+	protected JPanel panel;
+	protected JPanel panel_1;
+	protected JComboBox<Articulo> comboBoxAltaPedido;
+	protected JLabel lblIdAltaPedido;
 
 
 	
@@ -119,6 +120,7 @@ public class AltaPedidoUI extends JPanel {
 		panel.add(lblNombreAP, gbc_lblNombreAP);
 		
 		textNombreClienteAP = new JTextField();
+		textNombreClienteAP.setEditable(false);
 		GridBagConstraints gbc_textNombreClienteAP = new GridBagConstraints();
 		gbc_textNombreClienteAP.gridwidth = 3;
 		gbc_textNombreClienteAP.fill = GridBagConstraints.HORIZONTAL;
@@ -138,6 +140,7 @@ public class AltaPedidoUI extends JPanel {
 		panel.add(lblPrimerApellidoAP, gbc_lblPrimerApellidoAP);
 		
 		textPrimerApeAP = new JTextField();
+		textPrimerApeAP.setEditable(false);
 		GridBagConstraints gbc_textPrimerApeAP = new GridBagConstraints();
 		gbc_textPrimerApeAP.gridwidth = 3;
 		gbc_textPrimerApeAP.fill = GridBagConstraints.HORIZONTAL;
@@ -156,6 +159,7 @@ public class AltaPedidoUI extends JPanel {
 		panel.add(lblSegundoApellidoAP, gbc_lblSegundoApellidoAP);
 		
 		textSegundoApeAP = new JTextField();
+		textSegundoApeAP.setEditable(false);
 		GridBagConstraints gbc_textSegundoApeAP = new GridBagConstraints();
 		gbc_textSegundoApeAP.gridwidth = 3;
 		gbc_textSegundoApeAP.fill = GridBagConstraints.HORIZONTAL;
@@ -197,21 +201,17 @@ public class AltaPedidoUI extends JPanel {
 		gbc_lblNombreArticulo.gridy = 1;
 		panel_1.add(lblNombreArticulo, gbc_lblNombreArticulo);
 		
-		textNombreArticuloAP = new JTextField();
-		GridBagConstraints gbc_textNombreArticuloAP = new GridBagConstraints();
-		gbc_textNombreArticuloAP.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textNombreArticuloAP.insets = new Insets(0, 0, 5, 5);
-		gbc_textNombreArticuloAP.gridx = 3;
-		gbc_textNombreArticuloAP.gridy = 1;
-		panel_1.add(textNombreArticuloAP, gbc_textNombreArticuloAP);
-		textNombreArticuloAP.setColumns(10);
+		comboBoxAltaPedido = new JComboBox<Articulo>();
+		GridBagConstraints gbc_comboBoxAltaPedido = new GridBagConstraints();
+		gbc_comboBoxAltaPedido.gridwidth = 5;
+		gbc_comboBoxAltaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxAltaPedido.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxAltaPedido.gridx = 3;
+		gbc_comboBoxAltaPedido.gridy = 1;
+		panel_1.add(comboBoxAltaPedido, gbc_comboBoxAltaPedido);
 		
-		btnBuscarArticuloAP = new JButton("Buscar Articulo");
-		GridBagConstraints gbc_btnBuscarArticuloAP = new GridBagConstraints();
-		gbc_btnBuscarArticuloAP.insets = new Insets(0, 0, 5, 5);
-		gbc_btnBuscarArticuloAP.gridx = 5;
-		gbc_btnBuscarArticuloAP.gridy = 1;
-		panel_1.add(btnBuscarArticuloAP, gbc_btnBuscarArticuloAP);
+		DefaultComboBoxModel<Articulo> model = new DefaultComboBoxModel<>();
+		comboBoxAltaPedido.setModel(model);
 		
 		lblRefArticuloPA = new JLabel("Referencia Articulo");
 		lblRefArticuloPA.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -255,6 +255,7 @@ public class AltaPedidoUI extends JPanel {
 		panel_1.add(btnLimpiarAP, gbc_btnLimpiarAP);
 		
 		textRefArticuloAP = new JTextField();
+		textRefArticuloAP.setEditable(false);
 		GridBagConstraints gbc_textRefArticuloAP = new GridBagConstraints();
 		gbc_textRefArticuloAP.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textRefArticuloAP.insets = new Insets(0, 0, 5, 5);
@@ -264,6 +265,7 @@ public class AltaPedidoUI extends JPanel {
 		textRefArticuloAP.setColumns(10);
 		
 		textNombreArtAP = new JTextField();
+		textNombreArtAP.setEditable(false);
 		GridBagConstraints gbc_textNombreArtAP = new GridBagConstraints();
 		gbc_textNombreArtAP.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textNombreArtAP.insets = new Insets(0, 0, 5, 5);
@@ -273,6 +275,9 @@ public class AltaPedidoUI extends JPanel {
 		textNombreArtAP.setColumns(10);
 		
 		textPrecioAP = new JTextField();
+		textPrecioAP.setDisabledTextColor(Color.BLACK);
+		textPrecioAP.setSelectionColor(Color.BLACK);
+		textPrecioAP.setEditable(false);
 		GridBagConstraints gbc_textPrecioAP = new GridBagConstraints();
 		gbc_textPrecioAP.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textPrecioAP.insets = new Insets(0, 0, 5, 5);
@@ -324,6 +329,13 @@ public class AltaPedidoUI extends JPanel {
 			}
 		});
 		scrollPane.setViewportView(table_1);
+		
+		lblIdAltaPedido = new JLabel("");
+		GridBagConstraints gbc_lblIdAltaPedido = new GridBagConstraints();
+		gbc_lblIdAltaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIdAltaPedido.gridx = 2;
+		gbc_lblIdAltaPedido.gridy = 9;
+		add(lblIdAltaPedido, gbc_lblIdAltaPedido);
 		
 		btnGuardarAP = new JButton("Guardar");
 		GridBagConstraints gbc_btnGuardarAP = new GridBagConstraints();

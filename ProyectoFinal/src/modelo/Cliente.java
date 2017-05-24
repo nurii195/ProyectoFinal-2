@@ -43,7 +43,7 @@ public class Cliente implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return  nombre + "," + primerApellido + segundoApellido;
+		return  nombre + "," + primerApellido+" "+ segundoApellido;
 	}
 	
 }
