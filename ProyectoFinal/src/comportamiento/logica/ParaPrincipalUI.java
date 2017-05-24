@@ -1,14 +1,23 @@
-package control.comportamiento;
+package comportamiento.logica;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
-import comportamiento.logica.GestorArticulo;
-import comportamiento.logica.GestorCliente;
-import comportamiento.logica.GestorPedido;
+import comportamiento.articulo.ParaAltaArticuloUI;
+import comportamiento.articulo.ParaBajaArticuloUI;
+import comportamiento.articulo.ParaConsultaArticuloUI;
+import comportamiento.articulo.ParaModificacionArticuloUI;
+import comportamiento.cliente.ParaAltaClienteUI;
+import comportamiento.cliente.ParaBajaCliente;
+import comportamiento.cliente.ParaConsultaClienteUI;
+import comportamiento.cliente.ParaModCliente;
+import comportamiento.pedido.ParaAltaPedidoUI;
+import comportamiento.pedido.ParaConsultaPedidoUI;
 import modelo.GestorObjetos;
 import modelo.IObjeto;
 import rutas.RutasFicheros;
@@ -17,7 +26,9 @@ import vista.principal.PrincipalUI;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import java.awt.event.ActionEvent;
 
@@ -45,12 +56,28 @@ public class ParaPrincipalUI extends PrincipalUI {
 			public void actionPerformed(ActionEvent e) {
 				ParaConsultaClienteUI consulta = new ParaConsultaClienteUI(gCliente);
 				cambiarPanel(consulta);
+				
 			}
 		});
 		mntmAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ParaAltaClienteUI alta = new ParaAltaClienteUI(gCliente);
 				cambiarPanel(alta);
+
+			}
+		});
+		mntmBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaBajaCliente baja = new ParaBajaCliente(gCliente);
+				cambiarPanel(baja);
+
+			}
+		});
+		
+		mntmMo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaModCliente modifi = new ParaModCliente(gCliente);
+				cambiarPanel(modifi);
 
 			}
 		});
@@ -102,6 +129,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 		p.setLayout(gridBagLayout);
+		
 
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 5);

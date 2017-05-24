@@ -1,4 +1,4 @@
-package control.comportamiento; 
+package comportamiento.articulo; 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -34,11 +34,11 @@ public class ParaBajaArticuloUI extends BajaArtiUI {
 					Articulo art = (Articulo) selectedItem;
 					boolean baja = gArticulo.baja(art);
 					if(baja){
-						JOptionPane.showMessageDialog(ParaBajaArticuloUI.this, "Voló");
+						JOptionPane.showMessageDialog(ParaBajaArticuloUI.this, "El artículo ha sido eliminado");
 						model.removeElement(art);
 					}
 					else
-						JOptionPane.showMessageDialog(ParaBajaArticuloUI.this, "No adagsgsadgsa");
+						JOptionPane.showMessageDialog(ParaBajaArticuloUI.this, "Algo ha fallado, el artículo no ha sido eliminado");
 				}
 			}
 		});

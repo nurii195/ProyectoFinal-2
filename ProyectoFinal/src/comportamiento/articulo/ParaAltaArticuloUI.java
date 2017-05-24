@@ -1,4 +1,4 @@
-package control.comportamiento;
+package comportamiento.articulo;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

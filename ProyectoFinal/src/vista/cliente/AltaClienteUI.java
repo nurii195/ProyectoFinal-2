@@ -7,6 +7,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
 
 public class AltaClienteUI extends JPanel {
 	
@@ -32,13 +34,17 @@ public class AltaClienteUI extends JPanel {
 		setLayout(gridBagLayout);
 		
 		lblAltaCliente = new JLabel("ALTA CLIENTE");
+		lblAltaCliente.setForeground(new Color(128, 0, 128));
+		lblAltaCliente.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GridBagConstraints gbc_lblAltaCliente = new GridBagConstraints();
+		gbc_lblAltaCliente.gridwidth = 5;
 		gbc_lblAltaCliente.insets = new Insets(0, 0, 5, 5);
-		gbc_lblAltaCliente.gridx = 3;
+		gbc_lblAltaCliente.gridx = 1;
 		gbc_lblAltaCliente.gridy = 1;
 		add(lblAltaCliente, gbc_lblAltaCliente);
 		
 		lblNombre = new JLabel("NOMBRE");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.anchor = GridBagConstraints.BELOW_BASELINE_LEADING;
 		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
@@ -56,6 +62,7 @@ public class AltaClienteUI extends JPanel {
 		textNombreCA.setColumns(10);
 		
 		lblPrimerA = new JLabel("PRIMER APELLIDO ");
+		lblPrimerA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblPrimerA = new GridBagConstraints();
 		gbc_lblPrimerA.anchor = GridBagConstraints.WEST;
 		gbc_lblPrimerA.insets = new Insets(0, 0, 5, 5);
@@ -73,6 +80,7 @@ public class AltaClienteUI extends JPanel {
 		textPrimerACA.setColumns(10);
 		
 		lblSegundoA = new JLabel("SEGUNDO APELLIDO");
+		lblSegundoA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblSegundoA = new GridBagConstraints();
 		gbc_lblSegundoA.anchor = GridBagConstraints.WEST;
 		gbc_lblSegundoA.insets = new Insets(0, 0, 5, 5);
@@ -90,6 +98,7 @@ public class AltaClienteUI extends JPanel {
 		textSegundoACA.setColumns(10);
 		
 		lblDniCA = new JLabel("D.N.I.");
+		lblDniCA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblDniCA = new GridBagConstraints();
 		gbc_lblDniCA.anchor = GridBagConstraints.WEST;
 		gbc_lblDniCA.insets = new Insets(0, 0, 5, 5);
@@ -107,6 +116,7 @@ public class AltaClienteUI extends JPanel {
 		textDniCA.setColumns(10);
 		
 		lblNumeroClienteCA = new JLabel("NUMERO CLIENTE");
+		lblNumeroClienteCA.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblNumeroClienteCA = new GridBagConstraints();
 		gbc_lblNumeroClienteCA.anchor = GridBagConstraints.WEST;
 		gbc_lblNumeroClienteCA.insets = new Insets(0, 0, 5, 5);
@@ -115,15 +125,17 @@ public class AltaClienteUI extends JPanel {
 		add(lblNumeroClienteCA, gbc_lblNumeroClienteCA);
 		
 		textNumeroClienteCA = new JTextField();
+		textNumeroClienteCA.setEditable(false);
 		GridBagConstraints gbc_textNumeroClienteCA = new GridBagConstraints();
+		gbc_textNumeroClienteCA.anchor = GridBagConstraints.WEST;
 		gbc_textNumeroClienteCA.insets = new Insets(0, 0, 5, 5);
-		gbc_textNumeroClienteCA.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textNumeroClienteCA.gridx = 3;
 		gbc_textNumeroClienteCA.gridy = 11;
 		add(textNumeroClienteCA, gbc_textNumeroClienteCA);
 		textNumeroClienteCA.setColumns(10);
 		
 		btnGuardarCliente = new JButton("GUARDAR");
+		btnGuardarCliente.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_btnGuardarCliente = new GridBagConstraints();
 		gbc_btnGuardarCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_btnGuardarCliente.gridx = 5;

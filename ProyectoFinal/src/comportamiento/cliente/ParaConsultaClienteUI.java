@@ -1,4 +1,4 @@
-package control.comportamiento;
+package comportamiento.cliente;
 
 import comportamiento.logica.GestorCliente;
 import modelo.Cliente;

@@ -7,6 +7,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
 
 public class ConsultaClienteUI extends JPanel {
 	protected JTextField textDniCC;
@@ -26,18 +28,20 @@ public class ConsultaClienteUI extends JPanel {
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{10, 0, 10, 0, 10, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		lblConsultaCliente = new JLabel("CONSULTA CLIENTE");
+		lblConsultaCliente.setForeground(new Color(128, 0, 128));
+		lblConsultaCliente.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GridBagConstraints gbc_lblConsultaCliente = new GridBagConstraints();
 		gbc_lblConsultaCliente.insets = new Insets(0, 0, 5, 5);
-		gbc_lblConsultaCliente.anchor = GridBagConstraints.BASELINE;
 		gbc_lblConsultaCliente.gridx = 3;
 		gbc_lblConsultaCliente.gridy = 1;
 		add(lblConsultaCliente, gbc_lblConsultaCliente);
 		
 		lblDniCC = new JLabel("D.N.I.");
+		lblDniCC.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblDniCC = new GridBagConstraints();
 		gbc_lblDniCC.anchor = GridBagConstraints.WEST;
 		gbc_lblDniCC.insets = new Insets(0, 0, 5, 5);
@@ -55,6 +59,7 @@ public class ConsultaClienteUI extends JPanel {
 		textDniCC.setColumns(10);
 		
 		lblNombreCC = new JLabel("Nombre");
+		lblNombreCC.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblNombreCC = new GridBagConstraints();
 		gbc_lblNombreCC.anchor = GridBagConstraints.WEST;
 		gbc_lblNombreCC.insets = new Insets(0, 0, 5, 5);
@@ -72,6 +77,7 @@ public class ConsultaClienteUI extends JPanel {
 		textNombreCC.setColumns(10);
 		
 		lblPrimerApellidoCC = new JLabel("Primer Apellido");
+		lblPrimerApellidoCC.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblPrimerApellidoCC = new GridBagConstraints();
 		gbc_lblPrimerApellidoCC.anchor = GridBagConstraints.WEST;
 		gbc_lblPrimerApellidoCC.insets = new Insets(0, 0, 5, 5);
@@ -89,6 +95,7 @@ public class ConsultaClienteUI extends JPanel {
 		textPrimerApellidoCC.setColumns(10);
 		
 		lblSegundoApellido = new JLabel("Segundo Apellido");
+		lblSegundoApellido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblSegundoApellido = new GridBagConstraints();
 		gbc_lblSegundoApellido.anchor = GridBagConstraints.WEST;
 		gbc_lblSegundoApellido.insets = new Insets(0, 0, 5, 5);
@@ -106,6 +113,9 @@ public class ConsultaClienteUI extends JPanel {
 		textSegundoApellidoCC.setColumns(10);
 		
 		textResultadoCC = new JTextField();
+		textResultadoCC.setBackground(new Color(216, 191, 216));
+		textResultadoCC.setDisabledTextColor(new Color(153, 153, 153));
+		textResultadoCC.setEditable(false);
 		GridBagConstraints gbc_textResultadoCC = new GridBagConstraints();
 		gbc_textResultadoCC.insets = new Insets(0, 0, 5, 5);
 		gbc_textResultadoCC.fill = GridBagConstraints.HORIZONTAL;
@@ -115,6 +125,7 @@ public class ConsultaClienteUI extends JPanel {
 		textResultadoCC.setColumns(10);
 		
 		btnConsultarCliente = new JButton("CONSULTAR");
+		btnConsultarCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_btnConsultarCliente = new GridBagConstraints();
 		gbc_btnConsultarCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_btnConsultarCliente.gridx = 5;
