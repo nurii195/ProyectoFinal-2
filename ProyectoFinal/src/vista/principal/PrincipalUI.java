@@ -125,7 +125,7 @@ public class PrincipalUI extends JFrame {
 		setForeground(new Color(128, 0, 128));
 		setFont(new Font("Andalus", Font.PLAIN, 12));
 		setTitle("El armario de Alicia\u202A");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\USUARIO\\Desktop\\PracticaFinal\\imagenes\\clothes-hanger.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("clothes-hanger.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		JPanelBackground p = new JPanelBackground();
