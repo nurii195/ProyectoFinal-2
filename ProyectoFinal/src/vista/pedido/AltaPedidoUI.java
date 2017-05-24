@@ -57,36 +57,37 @@ public class AltaPedidoUI extends JPanel {
 	
 	public AltaPedidoUI() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10};
-		gridBagLayout.rowHeights = new int[]{10, 0, 0, 0, 0, 0, 60, 0, 0, 10, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{10, 0, 0, 60, 25, 0, 10};
+		gridBagLayout.rowHeights = new int[]{10, 0, 35, 0, 40, 0, 40, 60, 40, 0, 10, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 			
 		JLabel lblNewLabel = new JLabel("Alta Pedido");
-		lblNewLabel.setForeground(new Color(128, 0, 128));
+		lblNewLabel.setForeground(new Color(255, 69, 0));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.gridwidth = 16;
+		gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
+		gbc_lblNewLabel.gridwidth = 5;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 0;
+		gbc_lblNewLabel.gridx = 1;
 		gbc_lblNewLabel.gridy = 1;
 		add(lblNewLabel, gbc_lblNewLabel);
 		
 		panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Busqueda Cliente", TitledBorder.RIGHT, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.gridwidth = 5;
+		gbc_panel.gridwidth = 2;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 1;
-		gbc_panel.gridy = 2;
+		gbc_panel.gridy = 3;
 		add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{25, 0, 0, 0, 0, 0, 25, 0};
+		gbl_panel.rowHeights = new int[]{25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		lblDniAC = new JLabel("D.N.I Cliente");
@@ -166,7 +167,8 @@ public class AltaPedidoUI extends JPanel {
 		
 		btnBuscarClienteAP = new JButton("Buscar Cliente");
 		GridBagConstraints gbc_btnBuscarClienteAP = new GridBagConstraints();
-		gbc_btnBuscarClienteAP.insets = new Insets(0, 0, 0, 5);
+		gbc_btnBuscarClienteAP.anchor = GridBagConstraints.EAST;
+		gbc_btnBuscarClienteAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnBuscarClienteAP.gridx = 5;
 		gbc_btnBuscarClienteAP.gridy = 9;
 		panel.add(btnBuscarClienteAP, gbc_btnBuscarClienteAP);
@@ -174,16 +176,16 @@ public class AltaPedidoUI extends JPanel {
 		panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Busqueda Articulo", TitledBorder.RIGHT, TitledBorder.TOP, null, null));
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.gridwidth = 5;
+		gbc_panel_1.gridwidth = 2;
 		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
-		gbc_panel_1.gridx = 11;
-		gbc_panel_1.gridy = 2;
+		gbc_panel_1.gridx = 4;
+		gbc_panel_1.gridy = 3;
 		add(panel_1, gbc_panel_1);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.columnWidths = new int[]{25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0};
+		gbl_panel_1.rowHeights = new int[]{25, 0, 0, 0, 0, 0, 25, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_1.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
@@ -246,7 +248,8 @@ public class AltaPedidoUI extends JPanel {
 		
 		btnLimpiarAP = new JButton("Limpiar");
 		GridBagConstraints gbc_btnLimpiarAP = new GridBagConstraints();
-		gbc_btnLimpiarAP.insets = new Insets(0, 0, 5, 0);
+		gbc_btnLimpiarAP.anchor = GridBagConstraints.EAST;
+		gbc_btnLimpiarAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLimpiarAP.gridx = 9;
 		gbc_btnLimpiarAP.gridy = 3;
 		panel_1.add(btnLimpiarAP, gbc_btnLimpiarAP);
@@ -289,7 +292,8 @@ public class AltaPedidoUI extends JPanel {
 		
 		btnAñadirAP = new JButton("A\u00F1adir");
 		GridBagConstraints gbc_btnAñadirAP = new GridBagConstraints();
-		gbc_btnAñadirAP.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAñadirAP.anchor = GridBagConstraints.EAST;
+		gbc_btnAñadirAP.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAñadirAP.gridx = 9;
 		gbc_btnAñadirAP.gridy = 5;
 		panel_1.add(btnAñadirAP, gbc_btnAñadirAP);
@@ -298,17 +302,17 @@ public class AltaPedidoUI extends JPanel {
 		GridBagConstraints gbc_btnEliminarLineaAP = new GridBagConstraints();
 		gbc_btnEliminarLineaAP.anchor = GridBagConstraints.EAST;
 		gbc_btnEliminarLineaAP.insets = new Insets(0, 0, 5, 5);
-		gbc_btnEliminarLineaAP.gridx = 15;
-		gbc_btnEliminarLineaAP.gridy = 4;
+		gbc_btnEliminarLineaAP.gridx = 5;
+		gbc_btnEliminarLineaAP.gridy = 5;
 		add(btnEliminarLineaAP, gbc_btnEliminarLineaAP);
 		
 		scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
-		gbc_scrollPane.gridwidth = 15;
+		gbc_scrollPane.gridwidth = 5;
 		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 1;
-		gbc_scrollPane.gridy = 6;
+		gbc_scrollPane.gridy = 7;
 		add(scrollPane, gbc_scrollPane);
 		
 		table_1 = new JTable();
@@ -325,8 +329,8 @@ public class AltaPedidoUI extends JPanel {
 		GridBagConstraints gbc_btnGuardarAP = new GridBagConstraints();
 		gbc_btnGuardarAP.anchor = GridBagConstraints.EAST;
 		gbc_btnGuardarAP.insets = new Insets(0, 0, 5, 5);
-		gbc_btnGuardarAP.gridx = 15;
-		gbc_btnGuardarAP.gridy = 8;
+		gbc_btnGuardarAP.gridx = 5;
+		gbc_btnGuardarAP.gridy = 9;
 		add(btnGuardarAP, gbc_btnGuardarAP);
 
 
