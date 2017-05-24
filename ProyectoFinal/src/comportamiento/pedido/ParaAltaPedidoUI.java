@@ -1,8 +1,10 @@
 package comportamiento.pedido;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import comportamiento.articulo.ParaBajaArticuloUI;
 import comportamiento.logica.GestorArticulo;
 import comportamiento.logica.GestorCliente;
 import comportamiento.logica.GestorPedido;
@@ -23,13 +25,17 @@ public class ParaAltaPedidoUI extends AltaPedidoUI {
 	int linea = 1;
 	Articulo busquedaArt = null;
 	Cliente busquedaCli = null;
-	GestorPedido gPed=null;
-	
+	GestorPedido gPed = null;
+
 	public ParaAltaPedidoUI(GestorArticulo gArticulo, GestorCliente gCliente, GestorPedido gPed) {
+		super();
 		this.gPed = gPed;
+		gestorArticulo = gArticulo;
+		gestorCliente = gCliente;
+	
 		btnGuardarAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(busquedaCli != null){
+				if (busquedaCli != null) {
 					DefaultTableModel model = (DefaultTableModel) table_1.getModel();
 					ArrayList<LineaPedido> lineasPed = new ArrayList<>();
 					int filas = model.getRowCount();
@@ -37,11 +43,10 @@ public class ParaAltaPedidoUI extends AltaPedidoUI {
 						Object nombre = model.getValueAt(i, 1);
 						Object cant = model.getValueAt(i, 2);
 						Object consulta = gestorArticulo.consulta((String) nombre);
-						
-						
+
 						if (consulta != null) {
 							LineaPedido lineaPedido = new LineaPedido();
-							lineaPedido.setIdLineaPedido(i+1);
+							lineaPedido.setIdLineaPedido(i + 1);
 							lineaPedido.setCantidad((int) cant);
 							lineaPedido.setArticulo((Articulo) consulta);
 							lineasPed.add(lineaPedido);
@@ -51,114 +56,109 @@ public class ParaAltaPedidoUI extends AltaPedidoUI {
 					ped.setCliente(busquedaCli);
 					ped.setLineasPedidos(lineasPed);
 					ped.setFecha("Hoy");
-					
+
 					boolean alta = gPed.alta(ped);
 					if (alta) {
-						JOptionPane.showMessageDialog(null, "message");
+						lblIdAltaPedido.setText(String.valueOf(ped.getIdPedido()));
+
+						JOptionPane.showMessageDialog(null, "Se ha dado de alta su pedido");
+					} else {
+						JOptionPane.showMessageDialog(null, "Error, no se ha dado de alta su pedido");
 					}
 				}
 			}
 		});
-		
-		
+
 		btnEliminarLineaAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table_1.getModel();
-				
+
 				int selectedRow = table_1.getSelectedRow();
-				if(selectedRow > -1){
+				if (selectedRow > -1) {
 					model.removeRow(selectedRow);
 				}
 			}
 		});
-		
+
 		btnAñadirAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				int cantidad = 0;
 				try {
 					cantidad = Integer.valueOf(textCantidadAP.getText());
 				} catch (NumberFormatException e1) {
-					//Joptionpane blablabala
+					// Joptionpane blablabala
 					return;
 				}
-				
-				if (busquedaArt != null) {
+
+			
 					DefaultTableModel model = (DefaultTableModel) table_1.getModel();
-					Object[] rowData = { 
-							linea,
-							busquedaArt.getNombreArticulo(),
-							cantidad
-					};
-					
+					Object[] rowData = { linea, comboBoxAltaPedido.getSelectedItem().toString(), cantidad };
+
 					model.addRow(rowData);
 					linea++;
 					textRefArticuloAP.setText("");
 					textNombreArtAP.setText("");
 					textPrecioAP.setText("");
 					textCantidadAP.setText("");
-					busquedaArt = null;
-				}
+				
+				
 			}
 		});
-		
+
 		btnLimpiarAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				textNombreArtAP.setText("");
 				textRefArticuloAP.setText("");
 				textCantidadAP.setText("");
 				textPrecioAP.setText("");
-				
+
 			}
 		});
-		gestorArticulo=gArticulo;
-		gestorCliente=gCliente;
 		
-		textRefArticuloAP.setEnabled(false);
-		textNombreArtAP.setEnabled(false);
-		textPrecioAP.setEnabled(false);
-		
-		
+
 		btnBuscarClienteAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String dniCliente = textDniClienteAP.getText();
 				Object object = gestorCliente.consulta(dniCliente);
-				if (object!=null) {
-					Cliente cliente=(Cliente)object;
+				if (object != null) {
+					Cliente cliente = (Cliente) object;
 					busquedaCli = cliente;
 					textNombreClienteAP.setText(cliente.getNombre());
 					textPrimerApeAP.setText(cliente.getPrimerApellido());
-					textSegundoApeAP.setText(cliente.getSegundoApellido());				
-				}else{
+					textSegundoApeAP.setText(cliente.getSegundoApellido());
+				} else {
 					JOptionPane.showMessageDialog(null, "Cliente no esta dado de alta");
 				}
-				
-				
+
 			}
 		});
-		
-		
-		
-		btnBuscarArticuloAP.addActionListener(new ActionListener() {
+
+		comboBoxAltaPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			String nombreArticulo = textNombreArticuloAP.getText();
-			
-			Object object = gestorArticulo.consulta(nombreArticulo);
-			if (object!=null) {
-				Articulo articulo=(Articulo)object;
-				busquedaArt = articulo;
-				textRefArticuloAP.setText(String.valueOf(articulo.getIdArticulo()));
-				textNombreArtAP.setText(articulo.getNombreArticulo());
-				textPrecioAP.setText(String.valueOf(articulo.getPrecio()));
-				textCantidadAP.setText(textCantidadAP.getText());
-			}else{
-				JOptionPane.showMessageDialog(null, "Articulo no esta dado de alta");
-			}		
-				
+
+				DefaultComboBoxModel<Articulo> model = (DefaultComboBoxModel<Articulo>) comboBoxAltaPedido.getModel();
+				Object selectedItem = comboBoxAltaPedido.getSelectedItem();
+				if (selectedItem instanceof Articulo) {
+					Articulo art = (Articulo) selectedItem;
+
+					textRefArticuloAP.setText(String.valueOf(art.getIdArticulo()));
+					textNombreArtAP.setText(art.getNombreArticulo());
+					textPrecioAP.setText(String.valueOf(art.getPrecio()));
+					textCantidadAP.setText(textCantidadAP.getText());
+
+				}
 			}
 		});
 		
+		DefaultComboBoxModel<Articulo> model = (DefaultComboBoxModel<Articulo>) comboBoxAltaPedido.getModel();
+		ArrayList<Object> lista = gestorArticulo.getLista();
+		for (Object object : lista) {
+			if (object instanceof Articulo) {
+				model.addElement((Articulo) object);
+			}
+		}
 
 	}
 
