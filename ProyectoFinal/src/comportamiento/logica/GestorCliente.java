@@ -12,9 +12,9 @@ public class GestorCliente extends AbstractGestor {
 	@Override
 	protected int ultimoId() {		
 		int i = 0;
-		for (Object pedido : lista) {
-			if (pedido instanceof Cliente) {
-				Cliente p = (Cliente) pedido;
+		for (Object cliente : lista) {
+			if (cliente instanceof Cliente) {
+				Cliente p = (Cliente) cliente;
 				if(p.getId() > id){
 					i = p.getId();
 				}

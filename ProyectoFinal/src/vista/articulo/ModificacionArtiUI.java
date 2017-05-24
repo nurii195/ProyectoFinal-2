@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import modelo.Articulo;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class ModificacionArtiUI extends JPanel {
 	protected JTextField textNombreModificar;
@@ -35,10 +36,12 @@ public class ModificacionArtiUI extends JPanel {
 		setLayout(gridBagLayout);
 		
 		JLabel lblModificacion = new JLabel("Modificacion De Articulo");
-		lblModificacion.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblModificacion.setForeground(new Color(0, 206, 209));
+		lblModificacion.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GridBagConstraints gbc_lblModificacion = new GridBagConstraints();
+		gbc_lblModificacion.gridwidth = 3;
 		gbc_lblModificacion.insets = new Insets(0, 0, 5, 5);
-		gbc_lblModificacion.gridx = 4;
+		gbc_lblModificacion.gridx = 2;
 		gbc_lblModificacion.gridy = 1;
 		add(lblModificacion, gbc_lblModificacion);
 		
@@ -51,7 +54,9 @@ public class ModificacionArtiUI extends JPanel {
 		add(comboBox, gbc_comboBox);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
+		gbc_lblNombre.anchor = GridBagConstraints.WEST;
 		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombre.gridx = 2;
 		gbc_lblNombre.gridy = 5;
@@ -67,7 +72,9 @@ public class ModificacionArtiUI extends JPanel {
 		textNombreModificar.setColumns(10);
 		
 		JLabel lblPrecio = new JLabel("Precio");
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
+		gbc_lblPrecio.anchor = GridBagConstraints.WEST;
 		gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPrecio.gridx = 2;
 		gbc_lblPrecio.gridy = 7;
@@ -83,7 +90,9 @@ public class ModificacionArtiUI extends JPanel {
 		textPrecioModificar.setColumns(10);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
+		gbc_lblDescripcion.anchor = GridBagConstraints.WEST;
 		gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDescripcion.gridx = 2;
 		gbc_lblDescripcion.gridy = 9;
@@ -91,15 +100,18 @@ public class ModificacionArtiUI extends JPanel {
 		
 		textDescripcionModificar = new JTextField();
 		GridBagConstraints gbc_textDescripcionModificar = new GridBagConstraints();
+		gbc_textDescripcionModificar.gridheight = 2;
 		gbc_textDescripcionModificar.insets = new Insets(0, 0, 5, 5);
-		gbc_textDescripcionModificar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textDescripcionModificar.fill = GridBagConstraints.BOTH;
 		gbc_textDescripcionModificar.gridx = 4;
 		gbc_textDescripcionModificar.gridy = 9;
 		add(textDescripcionModificar, gbc_textDescripcionModificar);
 		textDescripcionModificar.setColumns(10);
 		
 		btnModificar = new JButton("Modificar");
+		btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_btnModificar = new GridBagConstraints();
+		gbc_btnModificar.anchor = GridBagConstraints.EAST;
 		gbc_btnModificar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnModificar.gridx = 4;
 		gbc_btnModificar.gridy = 11;

@@ -1,4 +1,4 @@
-package control.comportamiento;
+package comportamiento.articulo;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -47,14 +47,15 @@ public class ParaModificacionArticuloUI extends ModificacionArtiUI {
 				if (modificando != null) {
 
 					modificando.setNombreArticulo(textNombreModificar.getText());
-					//ETC
+					modificando.setDescripcion(textDescripcionModificar.getText());
+					modificando.setPrecio(Float.valueOf(textPrecioModificar.getText()));
 					
-					boolean baja = gestor.modificacion(modificando);
-					if(baja){
-						JOptionPane.showMessageDialog(ParaModificacionArticuloUI.this, "Voló");
+					boolean modificacion = gestor.modificacion(modificando);
+					if(modificacion){
+						JOptionPane.showMessageDialog(ParaModificacionArticuloUI.this, "El articulo ha sido modificado");
 					}
 					else
-						JOptionPane.showMessageDialog(ParaModificacionArticuloUI.this, "No adagsgsadgsa");
+						JOptionPane.showMessageDialog(ParaModificacionArticuloUI.this, "Algo ha fallado, el artículo no ha sido modificado");
 				}
 			}
 		});
