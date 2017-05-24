@@ -1,6 +1,9 @@
 package comportamiento.logica;
 
 import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 public class Principal {
 	public static void main(String[] args) {

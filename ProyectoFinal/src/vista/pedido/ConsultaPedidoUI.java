@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.Color;
 
 public class ConsultaPedidoUI extends JPanel {
 	protected JTextField textIdPedido;
@@ -31,7 +32,8 @@ public class ConsultaPedidoUI extends JPanel {
 		setLayout(gridBagLayout);
 		
 		JLabel lblConsultaDePedido = new JLabel("Consulta De Pedido");
-		lblConsultaDePedido.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblConsultaDePedido.setForeground(new Color(255, 69, 0));
+		lblConsultaDePedido.setFont(new Font("Tahoma", Font.BOLD, 20));
 		GridBagConstraints gbc_lblConsultaDePedido = new GridBagConstraints();
 		gbc_lblConsultaDePedido.gridwidth = 8;
 		gbc_lblConsultaDePedido.insets = new Insets(0, 0, 5, 0);

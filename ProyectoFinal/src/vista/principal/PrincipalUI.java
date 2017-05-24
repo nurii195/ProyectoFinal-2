@@ -16,6 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Window.Type;
+import java.awt.Frame;
+import java.awt.Dialog.ModalExclusionType;
 
 public class PrincipalUI extends JFrame {
 
@@ -35,7 +39,6 @@ public class PrincipalUI extends JFrame {
 	protected JMenuItem mntmPedidoConsulta;
 	protected JMenuItem mntmPedidoBaja;
 	protected JMenuItem mntmPedidoModif;
-	private JLabel lblTuFerretería;
 	
 	  ImageIcon iconoAnadir = new ImageIcon("iconoAñadir.jpg");
 	  ImageIcon iconoLupa = new ImageIcon("lupa.jpg");
@@ -46,13 +49,7 @@ public class PrincipalUI extends JFrame {
 
 
 	public PrincipalUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		JPanelBackground p = new JPanelBackground();
-		p.setBackground("logotipo.jpg");
-		p.setBorder(new EmptyBorder(5, 5, 5, 5));
-		p.setLayout(new BorderLayout(0, 0));
-		setContentPane(p);
+		rellenoDePanel();
 			
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -77,7 +74,6 @@ public class PrincipalUI extends JFrame {
 		mntmBaja = new JMenuItem("Baja");
 		mnCliente.add(mntmBaja);
 		mntmBaja.setIcon(iconoBorrar);
-		
 		
 		
 		mnArticulo = new JMenu("Articulo");
@@ -120,6 +116,23 @@ public class PrincipalUI extends JFrame {
 		mntmPedidoBaja.setIcon(iconoBorrar);
 		
 
+	}
+
+
+
+	private void rellenoDePanel() {
+		setBackground(new Color(255, 255, 255));
+		setForeground(new Color(128, 0, 128));
+		setFont(new Font("Andalus", Font.PLAIN, 12));
+		setTitle("El armario de Alicia\u202A");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\USUARIO\\Desktop\\PracticaFinal\\imagenes\\clothes-hanger.png"));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		JPanelBackground p = new JPanelBackground();
+		p.setBackground("logotipo.jpg");
+		p.setBorder(new EmptyBorder(5, 5, 5, 5));
+		p.setLayout(new BorderLayout(0, 0));
+		setContentPane(p);
 	}
 
 }
