@@ -40,8 +40,7 @@ public class Pedido implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", cliente=" + cliente + ", lineasPedidos="
-				+ lineasPedidos + "]";
+		return "Pedido "+idPedido ;
 	}
 
 	
