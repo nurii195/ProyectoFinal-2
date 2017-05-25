@@ -17,6 +17,7 @@ import comportamiento.cliente.ParaBajaClienteUI;
 import comportamiento.cliente.ParaConsultaClienteUI;
 import comportamiento.cliente.ParaModificacionClienteUI;
 import comportamiento.pedido.ParaAltaPedidoUI;
+import comportamiento.pedido.ParaBajaPedidoUI;
 import comportamiento.pedido.ParaConsultaPedidoUI;
 import modelo.GestorObjetos;
 import modelo.IObjeto;
@@ -119,6 +120,12 @@ public class ParaPrincipalUI extends PrincipalUI {
 				cambiarPanel(consulta);
 			}
 		});
+		mntmPedidoBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaBajaPedidoUI baja = new ParaBajaPedidoUI(gPedido);
+				cambiarPanel(baja);
+			}
+		});
 	}
 	
 	private void cambiarPanel(JPanel panel){
@@ -130,7 +137,6 @@ public class ParaPrincipalUI extends PrincipalUI {
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 		p.setLayout(gridBagLayout);
 		
-
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
