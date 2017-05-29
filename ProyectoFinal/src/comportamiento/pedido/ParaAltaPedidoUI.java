@@ -22,10 +22,10 @@ public class ParaAltaPedidoUI extends AltaPedidoUI {
 
 	private final GestorArticulo gestorArticulo;
 	private final GestorCliente gestorCliente;
-	int linea = 1;
-	Articulo busquedaArt = null;
-	Cliente busquedaCli = null;
-	GestorPedido gPed = null;
+	private int linea = 1;
+	private Articulo busquedaArt = null;
+	private Cliente busquedaCli = null;
+	private GestorPedido gPed = null;
 
 	public ParaAltaPedidoUI(GestorArticulo gArticulo, GestorCliente gCliente, GestorPedido gPed) {
 		super();
