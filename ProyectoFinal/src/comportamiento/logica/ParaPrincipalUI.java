@@ -19,6 +19,7 @@ import comportamiento.cliente.ParaModificacionClienteUI;
 import comportamiento.pedido.ParaAltaPedidoUI;
 import comportamiento.pedido.ParaBajaPedidoUI;
 import comportamiento.pedido.ParaConsultaPedidoUI;
+import comportamiento.pedido.ParaModificarPedidoUI;
 import modelo.GestorObjetos;
 import modelo.IObjeto;
 import rutas.RutasFicheros;
@@ -45,6 +46,7 @@ public class ParaPrincipalUI extends PrincipalUI {
 	
 	public ParaPrincipalUI() {
 		super();
+	
 		gestorArchivoCliente = new GestorObjetos(RutasFicheros.rutaCliente);
 		gestorArchivoArticulo = new GestorObjetos(RutasFicheros.rutaArticulo);
 		gCliente = new GestorCliente(gestorArchivoCliente);
@@ -124,6 +126,13 @@ public class ParaPrincipalUI extends PrincipalUI {
 			public void actionPerformed(ActionEvent e) {
 				ParaBajaPedidoUI baja = new ParaBajaPedidoUI(gPedido);
 				cambiarPanel(baja);
+			}
+		});
+		mntmPedidoModif.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ParaModificarPedidoUI modificacion = new ParaModificarPedidoUI(gArticulo,gPedido);
+				cambiarPanel(modificacion);
+				
 			}
 		});
 	}
