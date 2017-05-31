@@ -6,11 +6,14 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JComboBox;
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableColumn;
 
 import modelo.Articulo;
 import modelo.Pedido;
@@ -72,9 +75,7 @@ public class ModificarPedidoUI extends JPanel {
 		gbc_comboBoxModPedido.gridx = 3;
 		gbc_comboBoxModPedido.gridy = 3;
 		add(comboBoxModPedido, gbc_comboBoxModPedido);
-		//DefaultComboBoxModel<Pedido> model = new DefaultComboBoxModel<>();
-		//comboBoxModPedido.setModel(model);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "A\u00F1adir otro articulo", TitledBorder.RIGHT, TitledBorder.TOP, null, Color.BLACK));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
